@@ -3,7 +3,7 @@ var app = require("http");
 var fs = require("fs");
 // var Luu_tru = require("../data/services/XL_LUU_TRU");
 // var Nghiep_vu = require("../data/services/XL_NGHIEP_VU");
-var Port = 1000;
+var Port = 3000;
 var Xu_ly_Tham_so = require("querystring");
 // var DOMParser = require("xmldom").DOMParser;
 // var XMLSerializer = require("xmldom").XMLSerializer;
@@ -27,36 +27,40 @@ function checkAuth(headers) {
 app.createServer((req, res) => {
     console.log(`${req.method} URL: ${req.url}`);
 
-    // Xử lý nếu req chỉ '/' thì load nội dung file index.html
-    var req_url = req.url == "/" ? "/NTH-Khach_Tham_quan/1-Man_hinh_Giao_dien/index.html" : req.url;
-
+    // Xử lý nếu req chỉ '/' thì chuyển sang '/home'
+    //req.url = (req.url == "/") ? "/home" : req.url;
+    var req_url;
+    if(req.url === "/" || req.url === "/home")
+      req_url = "/NTH-Khach_Tham_quan/1-Man_hinh_Giao_dien/index.html";
+    // else if(req.url === "/home")
+    //   req_url = "/NTH-Khach_Tham_quan/1-Man_hinh_Giao_dien/index.html";
+    else
+      req_url = req.url;
+    
     // Lưu ý: sau khi res nội dung của index.html về client thì ở file HTML sẽ có những
     //       request yêu cầu load nội dung của Resource (cụ thể ở đây là file js/script.js và img/favicon.ico)
     //       nên function này sẽ được gọi lại (callback) nhiều lần (cụ thể coi log ở dòng code thứ 6)
     
     // Xử lý phần header res sẽ gửi về Client
-    var file_extension = req.url.lastIndexOf(".");
-    var header_type =
-      file_extension == -1 && req.url != "/"
-        ? "text/plain"
-        : {
-            "/": "text/html",
-            ".html": "text/html",
-            ".ico": "image/x-icon",
-            ".jpg": "image/jpeg",
-            ".png": "image/png",
-            ".gif": "image/gif",
-            ".css": "text/css",
-            ".js": "text/javascript",
-            ".woff2":"text/css"
-          }[req.url.substr(file_extension)];
+    var file_extension = req_url.lastIndexOf(".");
+    
+    var header_type = (file_extension == -1 && req.url != '/') ? "text/plain" : { '/' : 'text/html',
+                                                                                  '.html' : 'text/html',
+                                                                                  '.ico' : 'image/x-icon',
+                                                                                  '.jpg' : 'image/jpeg',
+                                                                                  '.png' : 'image/png',
+                                                                                  '.gif' : 'image/gif',
+                                                                                  '.css' : 'text/css',
+                                                                                  '.js' : 'text/javascript',
+                                                                                  ".woff2":"text/css"
+                                                                                }[req_url.substr(file_extension)];
 
     // Đọc file theo req gửi từ Client lên (lưu ý, phần này sẽ được call nhiều lần để đọc các file Resource)
     fs.readFile(__dirname + req_url, (err, data) => {
       if (err) {
         // Xử lý phần tìm không thấy resource ở Server
         console.log("==> Error: " + err);
-        console.log("==> Error 404: file not found " + res.url);
+        console.log("==> Error 404: file not found " + req.url);
 
         // Set Header của res thành 404 - Not found (thông báo lỗi hiển thị cho Client --> coi trong phần console của   Browser nếu có lỗi)
         res.writeHead(404, "Not found");
@@ -66,7 +70,6 @@ app.createServer((req, res) => {
         res.setHeader("Content-type", header_type);
 
         res.end(data);
-        console.log(req.url, header_type);
       }
     });
 }).listen(Port, err => {
