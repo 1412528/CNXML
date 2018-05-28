@@ -1,0 +1,6 @@
+******* Cấu trúc Đối tượng ********
+Du_lieu : 
+  Nha_hang : Ma_so, Ten   ***** Tổ chức *******
+  Danh_sach_Mat_hang: 
+    * Mat_hang : Ma_so,Ten,Don_gia_Ban  **** Đối tượng Xử lý Chính ******
+       Nhom_Mat_hang : Ma_so,Ten

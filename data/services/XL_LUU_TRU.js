@@ -1,5 +1,5 @@
 var File = require("fs");
-var Duong_dan_Thu_muc_Du_lieu = "2-Du_lieu_Luu_tru";
+var Duong_dan_Thu_muc_Du_lieu = __dirname + "/../database";
 var DOMParser = require("xmldom").DOMParser;
 var XMLSerializer = require("xmldom").XMLSerializer;
 var xml2js = require("xml2js");
@@ -22,7 +22,7 @@ class XL_LUU_TRU {
     return Du_lieu;
   }
   Doc_Thong_tin_Nha_hang(){
-    var ChuoiJSON = File.readFileSync("2-Du_lieu_Luu_tru/Nha_hang/Nha_hang.json", "UTF-8");
+    var ChuoiJSON = File.readFileSync(Duong_dan_Thu_muc_Du_lieu + "/Nha_hang/Nha_hang.json", "UTF-8");
     var Nha_hang = JSON.parse(ChuoiJSON);
     return Nha_hang;
   }
@@ -36,7 +36,7 @@ class XL_LUU_TRU {
   }
   Ghi_Thong_tin_Nha_hang(Nha_hang){
     var Chuoi_JSON = JSON.stringify(Nha_hang);
-    File.writeFile("2-Du_lieu_Luu_tru/Nha_hang/Nha_hang.json", Chuoi_JSON, err=>{
+    File.writeFile(Duong_dan_Thu_muc_Du_lieu + "/Nha_hang/Nha_hang.json", Chuoi_JSON, err=>{
       if (err != null) console.log("--> Cannot create file Result.xml");
       else console.log("---> DONE JSON<---");
     })
