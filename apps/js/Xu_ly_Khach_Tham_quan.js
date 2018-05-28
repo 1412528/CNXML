@@ -73,8 +73,8 @@ function Tra_cuu_Mat_hang(Chuoi_Tra_cuu, Danh_sach) {
 // ************** Xử lý Lưu trữ *********** 
 function Doc_Danh_sach_Mat_hang() { 
   var Dia_chi_Dich_vu="http://localhost:3001"
-  var Tham_so="Ma_so_Xu_ly=Doc_Du_lieu"
-  var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}?${Tham_so}`
+  var Tham_so="Danh_sach_Mat_hang"
+  var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`
   var Xu_ly_HTTP = new XMLHttpRequest()
   Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false)
   // Xu_ly_HTTP.setRequestHeader('uid', '101');

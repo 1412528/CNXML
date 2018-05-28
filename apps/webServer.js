@@ -12,17 +12,7 @@ var Xu_ly_Tham_so = require("querystring");
 //var Nha_hang = Luu_tru.Doc_Thong_tin_Nha_hang()
 //var DS_Tivi = Nghiep_vu.Tao_Danh_Sach_Tivi(Du_lieu)
 
-var session = [101];
 
-function checkAuth(headers) {
-  var uid = headers.uid;
-  for (var i = 0; i < session.length; i++) {
-    if (uid == session[i]) {
-      return true;
-    }
-  }
-  return false;
-}
 
 app.createServer((req, res) => {
     console.log(`${req.method} URL: ${req.url}`);
@@ -31,7 +21,7 @@ app.createServer((req, res) => {
     //req.url = (req.url == "/") ? "/home" : req.url;
     var req_url;
     if(req.url === "/" || req.url === "/home")
-      req_url = "/NTH-Khach_Tham_quan/1-Man_hinh_Giao_dien/index.html";
+      req_url = "/Khach_Tham_quan/index.html";
     // else if(req.url === "/home")
     //   req_url = "/NTH-Khach_Tham_quan/1-Man_hinh_Giao_dien/index.html";
     else
@@ -52,7 +42,8 @@ app.createServer((req, res) => {
                                                                                   '.gif' : 'image/gif',
                                                                                   '.css' : 'text/css',
                                                                                   '.js' : 'text/javascript',
-                                                                                  ".woff2":"text/css"
+                                                                                  '.woff2':'text/css',
+                                                                                  '.map':'application/octet-stream'
                                                                                 }[req_url.substr(file_extension)];
 
     // Đọc file theo req gửi từ Client lên (lưu ý, phần này sẽ được call nhiều lần để đọc các file Resource)
