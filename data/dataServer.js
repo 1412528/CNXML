@@ -1,33 +1,28 @@
 var app = require('http');
+// var DOMParser = require("xmldom").DOMParser;
+// var XMLSerializer = require("xmldom").XMLSerializer;
 
 var Port = 3002;
+var Luu_tru = require("./services/XL_LUU_TRU.js");
+var Nghiep_vu = require("./services/XL_NGHIEP_VU");
+
+var Du_lieu = Luu_tru.Doc_Du_lieu();
+var Nha_hang = Luu_tru.Doc_Thong_tin_Nha_hang();
 
 app.createServer((req, res) => {
     console.log(`${req.method} ${req.url}`);
 
     switch(req.method) {
         case 'GET':
-            var getMethod = require('./services/getMethod.js')
 
             switch(req.url){
-                case '/CuaHang':
-                    if(checkAuth(req.headers) === true){
-                        res.writeHeader(200, {'Content-Type': 'text/xml'})
-                        var data =  getMethod.get_CuaHang()
-                        res.end(data)
-                    }
-                    else {
-                        res.writeHeader(404, {'Content-Type': 'text/plain'})
-                        res.end("Request was not support!!!")
-                    }
-                    break
-
-                case '/DanhSach_Tivi':
-
-                    res.writeHeader(200, {'Content-Type': 'text/xml'})
-                    var data = getMethod.get_DanhSach_Tivi()
-                    res.end(data)
-                    break
+                case '/Danh_Sach_Tivi':
+                    res.writeHeader(200, {'Content-Type': 'text/xml'});
+                    console.log(Du_lieu);
+                    
+                    var data = Du_lieu;
+                    res.end(data);
+                    break;
 
                 default:
                     res.writeHeader(404, {'Content-Type': 'text/plain'})
@@ -38,7 +33,6 @@ app.createServer((req, res) => {
             console.log('--> Done');
             break
         case 'POST':
-            var getMethod = require('./services/getMethod.js')
 
             switch(req.url){
                 case '/login':

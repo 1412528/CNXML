@@ -22,7 +22,7 @@ class XL_LUU_TRU {
     return Du_lieu;
   }
   Doc_Thong_tin_Nha_hang(){
-    var ChuoiJSON = File.readFileSync(Duong_dan_Thu_muc_Du_lieu + "/Nha_hang/Nha_hang.json", "UTF-8");
+    var ChuoiJSON = File.readFileSync(Duong_dan_Thu_muc_Du_lieu + "/Cua_hang/Nha_hang.json", "UTF-8");
     var Nha_hang = JSON.parse(ChuoiJSON);
     return Nha_hang;
   }

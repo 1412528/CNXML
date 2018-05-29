@@ -1,7 +1,7 @@
 var app = require('http');
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 var Port = 3001;
-
 var session = [101];
 
 function checkAuth(headers) {
@@ -33,12 +33,20 @@ app.createServer((req, res) => {
                     break
 
                 case '/Danh_sach_Mat_hang':
-                    console.log("Đã nhận request");
-                    res.end();
-                    // res.writeHeader(200, {'Content-Type': 'text/xml'})
-                    // var data = getMethod.get_DanhSach_Tivi()
-                    // res.end(data)
-                    break
+                    // console.log("Đã nhận request");
+                    // res.end();
+                    var Dia_chi_Dich_vu="http://localhost:3002";
+                    var Tham_so="Danh_Sach_Tivi";
+                    var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`;
+                    var Xu_ly_HTTP = new XMLHttpRequest();
+                    Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false);
+                    Xu_ly_HTTP.send();
+                    var data = Xu_ly_HTTP.responseText;
+                    console.log(data);
+                    
+                    res.writeHeader(200, {'Content-Type': 'text/xml', 'Access-Control-Allow-Origin' : '*'});
+                    res.end(data);
+                    break;
 
                 default:
                     res.writeHeader(404, {'Content-Type': 'text/plain'})

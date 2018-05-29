@@ -1,26 +1,15 @@
 "use strict";
 var app = require("http");
 var fs = require("fs");
-// var Luu_tru = require("../data/services/XL_LUU_TRU");
-// var Nghiep_vu = require("../data/services/XL_NGHIEP_VU");
+
 var Port = 3000;
 var Xu_ly_Tham_so = require("querystring");
-// var DOMParser = require("xmldom").DOMParser;
-// var XMLSerializer = require("xmldom").XMLSerializer;
-
-// var Du_lieu = Luu_tru.Doc_Du_lieu();
-//var Nha_hang = Luu_tru.Doc_Thong_tin_Nha_hang()
-//var DS_Tivi = Nghiep_vu.Tao_Danh_Sach_Tivi(Du_lieu)
-
-
 
 app.createServer((req, res) => {
     console.log(`${req.method} URL: ${req.url}`);
 
-    // Xử lý nếu req chỉ '/' thì chuyển sang '/home'
-    //req.url = (req.url == "/") ? "/home" : req.url;
     var req_url;
-    if(req.url === "/" || req.url === "/home")
+    if(req.url === "/")
       req_url = "/Khach_Tham_quan/index.html";
     // else if(req.url === "/home")
     //   req_url = "/NTH-Khach_Tham_quan/1-Man_hinh_Giao_dien/index.html";
