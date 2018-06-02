@@ -7,7 +7,7 @@ var Xu_ly_Tham_so = require("querystring");
 
 app.createServer((req, res) => {
     console.log(`${req.method} URL: ${req.url}`);
-
+    
     var req_url;
     if(req.url === "/")
       req_url = "/views/customer/index.html";
