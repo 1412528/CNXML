@@ -33,8 +33,6 @@ app.createServer((req, res) => {
                     break
 
                 case '/Danh_sach_Mat_hang':
-                    // console.log("Đã nhận request");
-                    // res.end();
                     var Dia_chi_Dich_vu="http://localhost:3002";
                     var Tham_so="Danh_Sach_Tivi";
                     var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`;

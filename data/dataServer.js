@@ -14,25 +14,23 @@ app.createServer((req, res) => {
 
     switch(req.method) {
         case 'GET':
-
             switch(req.url){
                 case '/Danh_Sach_Tivi':
                     res.writeHeader(200, {'Content-Type': 'text/xml'});
-                    
                     var data = Du_lieu;
                     res.end(data);
                     break;
 
                 default:
-                    res.writeHeader(404, {'Content-Type': 'text/plain'})
-                    res.end("Request was not support!!!")
-                    break
+                    res.writeHeader(404, {'Content-Type': 'text/plain'});
+                    res.end("Request was not support!!!");
+                    break;
             }
 
             console.log('--> Done');
-            break
-        case 'POST':
+            break;
 
+        case 'POST':
             switch(req.url){
                 case '/login':
                     // console.log(req.headers)

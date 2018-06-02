@@ -6,7 +6,7 @@ $(document).ready(function()
 	$(".add-row").click(function(){
 		var name = $("#Th_Ho_ten").val();
 		var date = $("#Th_Ngay").val();
-		var id = $("#Th_Ma_so_Tivi").val();
+		var id = $("#Th_Ma_so_San_pham").val();
 		var num = $("#Th_So_luong").val();
 		var markup = "<tr><td>" + stt + "</td><td>" + name + "</td><td>" + date + "</td><td>" + id + "</td><td>" + num + 	"</td><td>" + num + "</td><td>" + num + "</td></tr>";
 		$("table tbody").append(markup);

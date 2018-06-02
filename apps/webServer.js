@@ -10,9 +10,15 @@ app.createServer((req, res) => {
 
     var req_url;
     if(req.url === "/")
-      req_url = "/Khach_Tham_quan/index.html";
-    // else if(req.url === "/home")
-    //   req_url = "/NTH-Khach_Tham_quan/1-Man_hinh_Giao_dien/index.html";
+      req_url = "/views/customer/index.html";
+    else if(req.url === "/employee")
+      req_url = "/views/employee/index.html";
+    else if(req.url === "/employee/sell_product")
+      req_url = "/views/employee/sell_product.html";
+    else if(req.url === "/admin")
+      req_url = "/views/admin/index.html";
+    else if(req.url === "/admin/change_product")
+      req_url = "/views/admin/change_product.html";
     else
       req_url = req.url;
     
@@ -32,6 +38,10 @@ app.createServer((req, res) => {
                                                                                   '.css' : 'text/css',
                                                                                   '.js' : 'text/javascript',
                                                                                   '.woff2':'text/css',
+                                                                                  '.woff':'text/css',
+                                                                                  '.svg':'text/css',
+                                                                                  '.eot':'text/css',
+                                                                                  '.ttf':'text/css',
                                                                                   '.map':'application/octet-stream'
                                                                                 }[req_url.substr(file_extension)];
 

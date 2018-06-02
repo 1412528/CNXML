@@ -69,33 +69,33 @@ function Tra_cuu_Mat_hang(Chuoi_Tra_cuu, Danh_sach) {
 
   return Danh_sach_Kq
 }
-// function Tim_Tivi(Ma_so_Tivi, Danh_sach_Tivi){
-//   var index = -1
-//   for (var i = 0; i < Danh_sach_Tivi.getElementsByTagName("Tivi").length; i++) {
-//     var Tivi = Danh_sach_Tivi.getElementsByTagName("Tivi")[i]
-//     var Ma_so = Tivi.getAttribute("Ma_so")
-//     if (Ma_so_Tivi == Ma_so) 
-//       index = i
-//   }
-//   return index
-// }
-// function Ban_hang(Ho_ten, Tivi_index, So_luong){
-//   var Dia_chi_Dich_vu = "http://localhost:1000"
-//   var Tham_so = `Ma_so_Xu_ly=Ban_Tivi&Ho_ten=${Ho_ten}&Tivi_index=${Tivi_index}&So_luong=${So_luong}`
-//   var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}?${Tham_so}`
-//   var Xu_ly_HTTP = new XMLHttpRequest()
-//   Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false)
-//   Xu_ly_HTTP.send("")
-//   var Chuoi_XML = Xu_ly_HTTP.responseText
-//   var Du_lieu = new DOMParser().parseFromString(Chuoi_XML, "text/xml").documentElement
-//   var Danh_sach_Tivi=Du_lieu.getElementsByTagName("Danh_sach_Tivi")[0]
-//   return Danh_sach_Tivi
-// }
+function Tim_Tivi(Ma_so_Tivi, Danh_sach_Tivi){
+  var index = -1
+  for (var i = 0; i < Danh_sach_Tivi.getElementsByTagName("Tivi").length; i++) {
+    var Tivi = Danh_sach_Tivi.getElementsByTagName("Tivi")[i]
+    var Ma_so = Tivi.getAttribute("Ma_so")
+    if (Ma_so_Tivi == Ma_so) 
+      index = i
+  }
+  return index
+}
+function Ban_hang(Ho_ten, Tivi_index, So_luong){
+  var Dia_chi_Dich_vu = "http://localhost:1000"
+  var Tham_so = `Ma_so_Xu_ly=Ban_Tivi&Ho_ten=${Ho_ten}&Tivi_index=${Tivi_index}&So_luong=${So_luong}`
+  var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}?${Tham_so}`
+  var Xu_ly_HTTP = new XMLHttpRequest()
+  Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false)
+  Xu_ly_HTTP.send("")
+  var Chuoi_XML = Xu_ly_HTTP.responseText
+  var Du_lieu = new DOMParser().parseFromString(Chuoi_XML, "text/xml").documentElement
+  var Danh_sach_Tivi=Du_lieu.getElementsByTagName("Danh_sach_Tivi")[0]
+  return Danh_sach_Tivi
+}
 // ************** Xử lý Lưu trữ *********** 
 function Doc_Danh_sach_Mat_hang() { 
   var Dia_chi_Dich_vu="http://localhost:1000"
-  var Tham_so="Danh_sach_Mat_hang"
-  var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`
+  var Tham_so="Ma_so_Xu_ly=Doc_Du_lieu"
+  var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}?${Tham_so}`
   var Xu_ly_HTTP = new XMLHttpRequest()
   Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false)
   // Xu_ly_HTTP.setRequestHeader('uid', '101');
@@ -104,23 +104,23 @@ function Doc_Danh_sach_Mat_hang() {
   var Du_lieu = new DOMParser().parseFromString(Chuoi_XML, "text/xml").documentElement
   return Du_lieu
 }
-// function Doc_Danh_sach_Nhan_vien(){
-//   var Dia_chi_Dich_vu = "http://localhost:3001"
-//   var Tham_so = `Ma_so_Xu_ly=Doc_Danh_sach_Nhan_vien`
-//   var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}?${Tham_so}`
-//   var Xu_ly_HTTP = new XMLHttpRequest()
-//   Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false)
-//   Xu_ly_HTTP.send("")
-//   Chuoi_JSON = JSON.parse(Xu_ly_HTTP.responseText)
-//   return Chuoi_JSON;
-// }
-// function Doc_Doanh_thu_Nhan_vien(Ho_ten){
-//   var Dia_chi_Dich_vu = "http://localhost:1000"
-//   var Tham_so = `Ma_so_Xu_ly=Doc_Doanh_thu_Nhan_vien&Ho_ten=${Ho_ten}`
-//   var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}?${Tham_so}`
-//   var Xu_ly_HTTP = new XMLHttpRequest()
-//   Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false)
-//   Xu_ly_HTTP.send("")
-//   return Xu_ly_HTTP.responseText;
-// }
+function Doc_Danh_sach_Nhan_vien(){
+  var Dia_chi_Dich_vu = "http://localhost:1000"
+  var Tham_so = `Ma_so_Xu_ly=Doc_Danh_sach_Nhan_vien`
+  var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}?${Tham_so}`
+  var Xu_ly_HTTP = new XMLHttpRequest()
+  Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false)
+  Xu_ly_HTTP.send("")
+  Chuoi_JSON = JSON.parse(Xu_ly_HTTP.responseText)
+  return Chuoi_JSON;
+}
+function Doc_Doanh_thu_Nhan_vien(Ho_ten){
+  var Dia_chi_Dich_vu = "http://localhost:1000"
+  var Tham_so = `Ma_so_Xu_ly=Doc_Doanh_thu_Nhan_vien&Ho_ten=${Ho_ten}`
+  var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}?${Tham_so}`
+  var Xu_ly_HTTP = new XMLHttpRequest()
+  Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false)
+  Xu_ly_HTTP.send("")
+  return Xu_ly_HTTP.responseText;
+}
 
