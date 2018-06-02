@@ -42,7 +42,6 @@ app.createServer((req, res) => {
                     Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false);
                     Xu_ly_HTTP.send();
                     var data = Xu_ly_HTTP.responseText;
-                    console.log(data);
                     
                     res.writeHeader(200, {'Content-Type': 'text/xml', 'Access-Control-Allow-Origin' : '*'});
                     res.end(data);
@@ -57,7 +56,6 @@ app.createServer((req, res) => {
             console.log('--> Done');
             break
         case 'POST':
-            var getMethod = require('./services/getMethod.js')
 
             switch(req.url){
                 case '/login':
@@ -74,8 +72,6 @@ app.createServer((req, res) => {
                         // console.log(body)
                         // body.splice(0,0)
                         // body.splice(body.size, 1)
-
-
 
                         // var reg = /--X-INSOMNIA-BOUNDARY/gi
                         // body = body.replace(reg,'|')

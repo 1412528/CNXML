@@ -18,7 +18,6 @@ app.createServer((req, res) => {
             switch(req.url){
                 case '/Danh_Sach_Tivi':
                     res.writeHeader(200, {'Content-Type': 'text/xml'});
-                    console.log(Du_lieu);
                     
                     var data = Du_lieu;
                     res.end(data);
