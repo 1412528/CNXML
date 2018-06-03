@@ -160,23 +160,74 @@
   </div>
 
   <script type="text/javascript">
-    function setDone(index){
-      var table = $('#dataTable').DataTable();
-      var row = table.row(index).node();
-      $(row).css("background-color","LimeGreen");
-    }
+  //*************** Biến Cố Yêu cầu Bán hàng  *************
+  function Xu_ly_Ban_hang(){    
+    $("table tbody").find('tr').each(function(){
+        console.log($(this).find("td:eq(1)").text());
+        console.log($(this).find("td:eq(2)").text());
+        console.log($(this).find("td:eq(3)").text());
+        console.log($(this).find("td:eq(4)").text());
+    });
 
-    function setDelivering(index){
-      var table = $('#dataTable').DataTable();
-      var row = table.row(index).node();
-      $(row).css("background-color","RoyalBlue");
-    }
+    // var Chuoi_HTML_Ket_qua = "Nếu nhìn thấy là không xét đủ trường hợp"
+    // //Nhập liệu
+    // var Ho_ten = Th_Ho_ten.value.toLowerCase();
+    // var Ma_so_Tivi = Th_Ma_so_Tivi.value;
+    // var So_luong = parseInt(Th_So_luong.value);
+    // var Tivi_index = Tim_Tivi(Ma_so_Tivi, Danh_sach_Tivi);
+    
+    // //Kiểm tra
+    // var Hop_le_1 = Tivi_index != -1 && (So_luong != "");
+    // if(Hop_le_1){
+    //     var So_luong_Ton = parseInt(Danh_sach_Tivi.getElementsByTagName("Tivi")[Tivi_index].getAttribute("So_luong_Ton"));
+    // }
+    // var Hop_le_2 = false;
+    // for (let index = 0; index < Danh_sach_Nhan_vien.Nhan_vien_Ban_hang.length; index++) {
+    //     if(Ho_ten == Danh_sach_Nhan_vien.Nhan_vien_Ban_hang[index].Ho_Ten.toLowerCase())
+    //         Hop_le_2 = true;
+    // }
+    // var Hop_le_3 = So_luong_Ton >= So_luong;
 
-    function setNotApproved(index){
-      var table = $('#dataTable').DataTable();
-      var row = table.row(index).node();
-      $(row).css("background-color","pink");
-    }
+    // if(Hop_le_1 && Hop_le_2 && Hop_le_3){ // Xử lý Khi Hợp lệ
+    //     Danh_sach_Tivi = Ban_hang(Ho_ten, Tivi_index, So_luong)
+    //     var Doanh_thu_NV = Doc_Doanh_thu_Nhan_vien(Ho_ten)
+    //     // Kết xuất Kết quả 
+    //     Chuoi_HTML_Ket_qua = Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach_Tivi)
+    //     CUA_SO_THONG_BAO.innerHTML = "Doanh thu bán hàng của " + Ho_ten + " là: " + Doanh_thu_NV.toLocaleString("vi")
+    // }
+    // else{ // Xử lý Khi Không Hợp lệ
+    //     var Chuoi_HTML_Loi = "" 
+    //     if(!Hop_le_2)
+    //         Chuoi_HTML_Loi += "Nhân viên " + Ho_ten + " Không hợp lệ<br>"
+    //     if(Tivi_index == -1)
+    //         Chuoi_HTML_Loi += "Mã số nhập " + Ma_so_Tivi + " Không hợp lệ<br>"
+    //     if (So_luong == "")
+    //         Chuoi_HTML_Loi += "Số lượng nhập Không hợp lệ<br>"
+    //     if(Hop_le_1 && !Hop_le_3)
+    //         Chuoi_HTML_Loi += "Số lượng nhập " + So_luong + " lớn hơn Số lượng tồn " + So_luong_Ton +"<br>"
+    //     Chuoi_HTML_Ket_qua = Chuoi_HTML_Loi 
+    // }
+    
+    // CUA_SO_KET_QUA.innerHTML = Chuoi_HTML_Ket_qua
+}
+  
+  function setDone(index){
+    var table = $('#dataTable').DataTable();
+    var row = table.row(index).node();
+    $(row).css("background-color","LimeGreen");
+  }
+
+  function setDelivering(index){
+    var table = $('#dataTable').DataTable();
+    var row = table.row(index).node();
+    $(row).css("background-color","RoyalBlue");
+  }
+  function setNotApproved(index){
+    var table = $('#dataTable').DataTable();
+    var row = table.row(index).node();
+    $(row).css("background-color","pink");
+  }    
+
   </script>
 </body>
 

@@ -17,8 +17,8 @@ app.createServer((req, res) => {
       req_url = "/views/employee/sell_product.html";
     else if(req.url === "/admin")
       req_url = "/views/admin/index.html";
-    else if(req.url === "/admin/change_product")
-      req_url = "/views/admin/change_product.html";
+    else if(req.url === "/admin/product")
+      req_url = "/views/admin/product.html";
     else
       req_url = req.url;
     
