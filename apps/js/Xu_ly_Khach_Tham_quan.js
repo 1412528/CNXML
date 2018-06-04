@@ -58,7 +58,7 @@ function Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach) {
 function Tra_cuu_Mat_hang(Chuoi_Tra_cuu, Danh_sach) {
   Chuoi_Tra_cuu = Chuoi_Tra_cuu.toUpperCase()
   var Tai_lieu = new DOMParser().parseFromString("<Danh_sach_Laptop /", "text/xml")
-  console.log(Tai_lieu)
+  
   var Danh_sach_Kq = Tai_lieu.documentElement
   for (var i = 0; i < Danh_sach.getElementsByTagName("Laptop").length; i++) {
     var Tivi = Danh_sach.getElementsByTagName("Laptop")[i]
@@ -66,7 +66,7 @@ function Tra_cuu_Mat_hang(Chuoi_Tra_cuu, Danh_sach) {
     if (Ten.indexOf(Chuoi_Tra_cuu) >= 0) 
       Danh_sach_Kq.appendChild(Tai_lieu.importNode(Tivi, true))
   }
-
+  
   return Danh_sach_Kq
 }
 

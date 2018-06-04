@@ -10,6 +10,10 @@
 .form_sell_product{
 	padding-bottom: 50px;
 }
+.add_product{
+	width: 100%;
+	margin: auto;
+}
 .form_sell_product .form-control{
 	margin: 4px 0px;
 }

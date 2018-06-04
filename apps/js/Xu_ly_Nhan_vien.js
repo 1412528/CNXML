@@ -55,42 +55,45 @@ function Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach) {
   return Chuoi_HTML
 }
 //************** Xử lý Nghiệp vụ ***********
-function Tra_cuu_Mat_hang(Chuoi_Tra_cuu, Danh_sach) {
-  Chuoi_Tra_cuu = Chuoi_Tra_cuu.toUpperCase()
-  var Tai_lieu = new DOMParser().parseFromString("<Danh_sach_Laptop /", "text/xml")
-  console.log(Tai_lieu)
-  var Danh_sach_Kq = Tai_lieu.documentElement
-  for (var i = 0; i < Danh_sach.getElementsByTagName("Laptop").length; i++) {
-    var Tivi = Danh_sach.getElementsByTagName("Laptop")[i]
-    var Ten = Tivi.getAttribute("Ten").toUpperCase()
-    if (Ten.indexOf(Chuoi_Tra_cuu) >= 0) 
-      Danh_sach_Kq.appendChild(Tai_lieu.importNode(Tivi, true))
+// function Tra_cuu_Mat_hang(Chuoi_Tra_cuu, Danh_sach) {
+//   Chuoi_Tra_cuu = Chuoi_Tra_cuu.toUpperCase()
+//   var Tai_lieu = new DOMParser().parseFromString("<Danh_sach_Laptop /", "text/xml")
+//   // console.log(Tai_lieu)
+//   var Danh_sach_Kq = Tai_lieu.documentElement
+//   for (var i = 0; i < Danh_sach.getElementsByTagName("Laptop").length; i++) {
+//     var Tivi = Danh_sach.getElementsByTagName("Laptop")[i]
+//     var Ten = Tivi.getAttribute("Ten").toUpperCase()
+//     if (Ten.indexOf(Chuoi_Tra_cuu) >= 0) 
+//       Danh_sach_Kq.appendChild(Tai_lieu.importNode(Tivi, true))
+//   }
+
+//   return Danh_sach_Kq
+// }
+function Tim_San_pham(Ma_so_San_pham, Danh_sach_San_pham){
+  var index = -1
+  for (var i = 0; i < Danh_sach_San_pham.getElementsByTagName("Laptop").length; i++) {
+    var San_pham = Danh_sach_San_pham.getElementsByTagName("Laptop")[i]
+    var Ma_so = San_pham.getAttribute("Ma_so")
+    if (Ma_so_San_pham == Ma_so) 
+      index = i
+  }
+  return index
+}
+function Ban_hang(Ma_san_pham, So_luong, Don_gia, Tien, Ho_ten, Dia_chi, Ngay){
+  var Danh_sach_ban = {
+    id : "Ma_san_pham",
+    num : "So_luong"
   }
 
-  return Danh_sach_Kq
+  var Dia_chi_Dich_vu = "http://localhost:3001"
+  var Tham_so="Ban_hang"
+  var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`
+  var Xu_ly_HTTP = new XMLHttpRequest()
+  Xu_ly_HTTP.open("POST",  Dia_chi_Xu_ly, false)
+  Xu_ly_HTTP.setRequestHeader('Content-Type', 'application/json');
+  Xu_ly_HTTP.send(JSON.stringify(Danh_sach_ban));
+  console.log(Xu_ly_HTTP.responseText);
 }
-// function Tim_Tivi(Ma_so_Tivi, Danh_sach_Tivi){
-//   var index = -1
-//   for (var i = 0; i < Danh_sach_Tivi.getElementsByTagName("Tivi").length; i++) {
-//     var Tivi = Danh_sach_Tivi.getElementsByTagName("Tivi")[i]
-//     var Ma_so = Tivi.getAttribute("Ma_so")
-//     if (Ma_so_Tivi == Ma_so) 
-//       index = i
-//   }
-//   return index
-// }
-// function Ban_hang(Ho_ten, Tivi_index, So_luong){
-//   var Dia_chi_Dich_vu = "http://localhost:1000"
-//   var Tham_so = `Ma_so_Xu_ly=Ban_Tivi&Ho_ten=${Ho_ten}&Tivi_index=${Tivi_index}&So_luong=${So_luong}`
-//   var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}?${Tham_so}`
-//   var Xu_ly_HTTP = new XMLHttpRequest()
-//   Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false)
-//   Xu_ly_HTTP.send("")
-//   var Chuoi_XML = Xu_ly_HTTP.responseText
-//   var Du_lieu = new DOMParser().parseFromString(Chuoi_XML, "text/xml").documentElement
-//   var Danh_sach_Tivi=Du_lieu.getElementsByTagName("Danh_sach_Tivi")[0]
-//   return Danh_sach_Tivi
-// }
 // ************** Xử lý Lưu trữ *********** 
 function Doc_Danh_sach_Mat_hang() { 
   var Dia_chi_Dich_vu="http://localhost:3001"

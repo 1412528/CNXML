@@ -16,22 +16,10 @@ function checkAuth(headers) {
 
 app.createServer((req, res) => {
     console.log(`${req.method} ${req.url}`);
-
+    
     switch(req.method) {
         case 'GET':
             switch(req.url){
-                case '/CuaHang':
-                    if(checkAuth(req.headers) === true){
-                        res.writeHeader(200, {'Content-Type': 'text/xml'})
-                        var data =  getMethod.get_CuaHang()
-                        res.end(data)
-                    }
-                    else {
-                        res.writeHeader(404, {'Content-Type': 'text/plain'})
-                        res.end("Request was not support!!!")
-                    }
-                    break
-
                 case '/Danh_sach_Mat_hang':
                     var Dia_chi_Dich_vu="http://localhost:3002";
                     var Tham_so="Danh_Sach_Tivi";
@@ -40,10 +28,23 @@ app.createServer((req, res) => {
                     Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false);
                     Xu_ly_HTTP.send();
                     var data = Xu_ly_HTTP.responseText;
+                    // console.log(data);
                     
                     res.writeHeader(200, {'Content-Type': 'text/xml', 'Access-Control-Allow-Origin' : '*'});
                     res.end(data);
                     break;
+
+                // case '/CuaHang':
+                    //     if(checkAuth(req.headers) === true){
+                    //         res.writeHeader(200, {'Content-Type': 'text/xml'})
+                    //         var data =  getMethod.get_CuaHang()
+                    //         res.end(data)
+                    //     }
+                    //     else {
+                    //         res.writeHeader(404, {'Content-Type': 'text/plain'})
+                    //         res.end("Request was not support!!!")
+                    //     }
+                    //     break
 
                 default:
                     res.writeHeader(404, {'Content-Type': 'text/plain'})
@@ -56,11 +57,28 @@ app.createServer((req, res) => {
         case 'POST':
 
             switch(req.url){
+                case '/Ban_hang':
+                    // console.log(req.headers);
+                    // console.log(req.body);
+                    
+                    let body = [];
+                    req.on('data', (chunk) => {
+                        body.push(chunk)
+                    }).on('end', () => {
+                        body = Buffer.concat(body).toString();
+                        console.log(JSON.parse(body).id);
+                        
+                    })
+                   
+                    res.writeHeader(200, {'Content-Type' : 'text/plain', 'Access-Control-Allow-Origin' : '*'});
+                    res.end("OK");
+                    break;
+
                 case '/login':
                     // console.log(req.headers)
                     // console.log(req.body)
 
-                    let body = [];
+                    body = [];
                     req.on('data', (chunk) => {
                         body.push(chunk)
                     }).on('end', () => {
@@ -95,6 +113,13 @@ app.createServer((req, res) => {
                     break
             }
             break
+        case 'OPTIONS':
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.setHeader("Access-Control-Allow-Credentials", "true");
+            res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+            res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+            res.end();
+            break;
         case 'PUT':
             break
         case 'DELETE':

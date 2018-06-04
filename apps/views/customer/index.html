@@ -308,9 +308,9 @@
                                 <span>Sort by:</span>
                                 <ul>
                                     <li>
-                                        <span class="sorting_text">Highest rated<i class="fas fa-chevron-down"></span></i>
+                                        <span class="sorting_text">Name<i class="fas fa-chevron-down"></span></i>
                                         <ul>
-                                            <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "original-order" }'>Highest rated</li>
+                                            <!-- <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "original-order" }'>Highest rated</li> -->
                                             <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }'>Name</li>
                                             <li class="shop_sorting_button"data-isotope-option='{ "sortBy": "price" }'>Price</li>
                                         </ul>
@@ -344,25 +344,24 @@ var Danh_sach_Tivi=[]
 var Danh_sach_Tivi_Xem=[]
 //*************** Biến Cố Khởi động  ************
 function Xu_ly_Khoi_dong() {
-  Danh_sach_Tivi = Doc_Danh_sach_Mat_hang()
-  Danh_sach_Tivi_Xem = Danh_sach_Tivi
+    Danh_sach_Tivi = Doc_Danh_sach_Mat_hang()
+    Danh_sach_Tivi_Xem = Danh_sach_Tivi
 
-  var Chuoi_HTML_Danh_sach_Tivi = Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach_Tivi_Xem)
-  
-  var Chuoi_HTML_Ket_qua = Chuoi_HTML_Danh_sach_Tivi
-  CUA_SO_KET_QUA.innerHTML = Chuoi_HTML_Ket_qua
+    var Chuoi_HTML_Danh_sach_Tivi = Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach_Tivi_Xem)
+    
+    //   var Chuoi_HTML_Ket_qua = Chuoi_HTML_Danh_sach_Tivi
+    CUA_SO_KET_QUA.innerHTML = Chuoi_HTML_Danh_sach_Tivi
 }
 
 //*************** Biến Cố Yêu cầu Tra cứu  ************
 function Xu_ly_Tra_cuu(){
-   // Nhập liệu
-   var Chuoi_Tra_cuu=Th_Chuoi_Tra_cuu.value
-   // Xử lý Tão Kết quả 
-   Danh_sach_Tivi_Xem=Tra_cuu_Mat_hang(Chuoi_Tra_cuu,Danh_sach_Tivi)
-   // Kết xuất Kết quả 
-   var Chuoi_HTML_Danh_sach_Tivi=
-     Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach_Tivi_Xem)
-  
-  CUA_SO_KET_QUA.innerHTML = Chuoi_HTML_Danh_sach_Tivi
+    // Nhập liệu
+    var Chuoi_Tra_cuu=Th_Chuoi_Tra_cuu.value
+    // Xử lý Tạo Kết quả 
+    Danh_sach_Tivi_Xem=Tra_cuu_Mat_hang(Chuoi_Tra_cuu,Danh_sach_Tivi)
+    // Kết xuất Kết quả 
+    var Chuoi_HTML_Danh_sach_Tivi = Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach_Tivi_Xem)
+    
+    CUA_SO_KET_QUA.innerHTML = Chuoi_HTML_Danh_sach_Tivi
 }
 </script>      

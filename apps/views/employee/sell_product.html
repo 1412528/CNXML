@@ -19,7 +19,7 @@
   <link href="../css/styles.css" rel="stylesheet">
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body onload="Xu_ly_Khoi_dong()" class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <a class="navbar-brand" href="/employee">Cashier Manager</a>
@@ -77,38 +77,43 @@
         <div class="card-body">
           <!-- Form Bán Sản Phẩm -->
           <div class="form_sell_product">
-            <div class="row">
-              <div class="col-lg-6">
-                <label for="Th_Ho_ten">Customer Name:</label>             
-                <input id="Th_Ho_ten" class="form-control" autocomplete="off" value=""/>
-                <label for="Th_Ngay">Date:</label> 
-                <input id="Th_Ngay" class="form-control" type="date" value="">
+            <form class="add_product">
+              <div class="row">
+                <div class="col-lg-6">
+                  <label for="Th_Ho_ten">Customer Name:</label>             
+                  <input id="Th_Ho_ten" class="form-control" autocomplete="off" value="" required>
+                  <label for="Th_Ma_so_San_pham">Product's ID</label>  
+                  <input id="Th_Ma_so_San_pham" class="form-control" type="text" autocomplete="off" value="" required/>
+                  <label for="Th_Ho_ten_nv">Cashier Name:</label>             
+                  <input id="Th_Ho_ten_nv" class="form-control" disabled value="Đăng nhập" required>
+                </div>
+                <div class="col-lg-6">
+                  <label for="Th_Address">Address:</label> 
+                  <input id="Th_Address" class="form-control" type="text" value="" required>
+                  <label for="Th_So_luong">Quantity:</label> 
+                  <input id="Th_So_luong" class="form-control" type="number" autocomplete="off" value="" required/>
+                </div>
               </div>
-              <div class="col-lg-6">
-                <label for="Th_Ma_so_San_pham">Product's ID</label>  
-                <input id="Th_Ma_so_San_pham" class="form-control" type="text" autocomplete="off" value=""/>
-                <label for="Th_So_luong">Quantity:</label> 
-                <input id="Th_So_luong" class="form-control" type="number" autocomplete="off" value=""/>
-              </div>
-            </div>
-            <div class="btn btn-primary add-row" style="float: right; clear: both;">Thêm sản phẩm</div>
+              <button class="btn btn-primary add-row" type="button" style="float: right; clear: both;">Add product</button>
+            </form>
             <table>
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Họ tên khách hàng</th>
-                            <th>Ngày lập hóa đơn</th>
-                            <th>Sản phẩm</th>
-                            <th>Số lượng</th>
-                            <th>Đơn giá</th>
-                            <th>Tiền</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ tên khách hàng</th>
+                        <th>Địa chỉ</th>
+                        <th>Ngày lập hóa đơn</th>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                    </tbody>
+                </tbody>
             </table>
-            <div class="btn btn-primary sell_product" onclick="Xu_ly_Ban_hang()" style="float: right; clear: both;margin: 10px 0px;">Bán sản phẩm</div>
+            <div class="btn btn-primary sell_product" onclick="Xu_ly_Ban_hang()" style="float: right; clear: both;margin: 10px 0px;">Sell product</div>
           </div>
         </div>
       </div>
@@ -160,73 +165,29 @@
   </div>
 
   <script type="text/javascript">
+  //*************** Biến dùng chung  ************
+  var Danh_sach_San_pham=[]
+  //*************** Biến Cố Khởi động  ************
+  function Xu_ly_Khoi_dong() {
+      Danh_sach_San_pham = Doc_Danh_sach_Mat_hang();
+  }
+
   //*************** Biến Cố Yêu cầu Bán hàng  *************
   function Xu_ly_Ban_hang(){    
     $("table tbody").find('tr').each(function(){
-        console.log($(this).find("td:eq(1)").text());
-        console.log($(this).find("td:eq(2)").text());
-        console.log($(this).find("td:eq(3)").text());
-        console.log($(this).find("td:eq(4)").text());
+        var Ho_ten = $(this).find("td:eq(1)").text();
+        var Dia_chi = $(this).find("td:eq(2)").text();
+        var Ngay = $(this).find("td:eq(3)").text();
+        var Ma_san_pham = $(this).find("td:eq(4)").text();
+        var So_luong = $(this).find("td:eq(5)").text();
+        var Don_gia = $(this).find("td:eq(6)").text();
+        var Tien = $(this).find("td:eq(7)").text();
+        
+        Ban_hang(Ma_san_pham, So_luong, Don_gia, Tien, Ho_ten, Dia_chi, Ngay);
     });
-
-    // var Chuoi_HTML_Ket_qua = "Nếu nhìn thấy là không xét đủ trường hợp"
-    // //Nhập liệu
-    // var Ho_ten = Th_Ho_ten.value.toLowerCase();
-    // var Ma_so_Tivi = Th_Ma_so_Tivi.value;
-    // var So_luong = parseInt(Th_So_luong.value);
-    // var Tivi_index = Tim_Tivi(Ma_so_Tivi, Danh_sach_Tivi);
     
-    // //Kiểm tra
-    // var Hop_le_1 = Tivi_index != -1 && (So_luong != "");
-    // if(Hop_le_1){
-    //     var So_luong_Ton = parseInt(Danh_sach_Tivi.getElementsByTagName("Tivi")[Tivi_index].getAttribute("So_luong_Ton"));
-    // }
-    // var Hop_le_2 = false;
-    // for (let index = 0; index < Danh_sach_Nhan_vien.Nhan_vien_Ban_hang.length; index++) {
-    //     if(Ho_ten == Danh_sach_Nhan_vien.Nhan_vien_Ban_hang[index].Ho_Ten.toLowerCase())
-    //         Hop_le_2 = true;
-    // }
-    // var Hop_le_3 = So_luong_Ton >= So_luong;
-
-    // if(Hop_le_1 && Hop_le_2 && Hop_le_3){ // Xử lý Khi Hợp lệ
-    //     Danh_sach_Tivi = Ban_hang(Ho_ten, Tivi_index, So_luong)
-    //     var Doanh_thu_NV = Doc_Doanh_thu_Nhan_vien(Ho_ten)
-    //     // Kết xuất Kết quả 
-    //     Chuoi_HTML_Ket_qua = Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach_Tivi)
-    //     CUA_SO_THONG_BAO.innerHTML = "Doanh thu bán hàng của " + Ho_ten + " là: " + Doanh_thu_NV.toLocaleString("vi")
-    // }
-    // else{ // Xử lý Khi Không Hợp lệ
-    //     var Chuoi_HTML_Loi = "" 
-    //     if(!Hop_le_2)
-    //         Chuoi_HTML_Loi += "Nhân viên " + Ho_ten + " Không hợp lệ<br>"
-    //     if(Tivi_index == -1)
-    //         Chuoi_HTML_Loi += "Mã số nhập " + Ma_so_Tivi + " Không hợp lệ<br>"
-    //     if (So_luong == "")
-    //         Chuoi_HTML_Loi += "Số lượng nhập Không hợp lệ<br>"
-    //     if(Hop_le_1 && !Hop_le_3)
-    //         Chuoi_HTML_Loi += "Số lượng nhập " + So_luong + " lớn hơn Số lượng tồn " + So_luong_Ton +"<br>"
-    //     Chuoi_HTML_Ket_qua = Chuoi_HTML_Loi 
-    // }
     
-    // CUA_SO_KET_QUA.innerHTML = Chuoi_HTML_Ket_qua
-}
-  
-  function setDone(index){
-    var table = $('#dataTable').DataTable();
-    var row = table.row(index).node();
-    $(row).css("background-color","LimeGreen");
   }
-
-  function setDelivering(index){
-    var table = $('#dataTable').DataTable();
-    var row = table.row(index).node();
-    $(row).css("background-color","RoyalBlue");
-  }
-  function setNotApproved(index){
-    var table = $('#dataTable').DataTable();
-    var row = table.row(index).node();
-    $(row).css("background-color","pink");
-  }    
 
   </script>
 </body>
