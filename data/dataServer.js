@@ -3,11 +3,11 @@ var app = require('http');
 // var XMLSerializer = require("xmldom").XMLSerializer;
 
 var Port = 3002;
-var Luu_tru = require("./services/XL_LUU_TRU.js");
-var Nghiep_vu = require("./services/XL_NGHIEP_VU");
+var getMethod = require("./services/getMethod.js");
+var postMethod = require("./services/postMethod.js");
 
-var Du_lieu = Luu_tru.Doc_Du_lieu();
-var Nha_hang = Luu_tru.Doc_Thong_tin_Nha_hang();
+var Du_lieu = getMethod.Doc_Du_lieu();
+// var Nha_hang = getMethod.Doc_Thong_tin_Nha_hang();
 
 app.createServer((req, res) => {
     console.log(`${req.method} ${req.url}`);
@@ -15,7 +15,7 @@ app.createServer((req, res) => {
     switch(req.method) {
         case 'GET':
             switch(req.url){
-                case '/Danh_Sach_Tivi':
+                case '/Danh_Sach_Laptop':
                     res.writeHeader(200, {'Content-Type': 'text/xml'});
                     var data = Du_lieu;
                     res.end(data);
@@ -31,34 +31,32 @@ app.createServer((req, res) => {
             break;
 
         case 'POST':
+            
             switch(req.url){
+                case '/Ban_Laptop':
+                    var body = [];
+                    req.on('data', (chunk) => {
+                        body.push(chunk)
+                    }).on('end', () => {
+                        body = Buffer.concat(body).toString();
+                        // console.log(JSON.parse(body)[1].Ho_ten);
+                        var Danh_sach_San_pham = JSON.parse(body);
+                        
+                    })
+                
+                    res.writeHeader(200, {'Content-Type' : 'text/plain', 'Access-Control-Allow-Origin' : '*'});
+                    res.end("");
+                    break;
                 case '/login':
                     // console.log(req.headers)
                     // console.log(req.body)
 
-                    let body = [];
+                    var body = [];
                     req.on('data', (chunk) => {
                         body.push(chunk)
                     }).on('end', () => {
                         body = Buffer.concat(body).toString()
-
-                        // body = body.split('--X-INSOMNIA-BOUNDARY')
-                        // console.log(body)
-                        // body.splice(0,0)
-                        // body.splice(body.size, 1)
-
-
-
-                        // var reg = /--X-INSOMNIA-BOUNDARY/gi
-                        // body = body.replace(reg,'|')
-                        // reg = /Content-Disposition: form-data;/gi
-                        // body = body.replace(reg,'|')
-                        // reg = /(\\r\\n\\r)/gi
-                        // body = body.replace(reg,'&')
-                        // console.log(body)
-                        // var arrString = body.split('--X-INSOMNIA-BOUNDARY\r\nContent-Disposition: form-data;')
-                        //
-                        // console.log(arrString)
+                        
                     })
 
                     session.push(101)
@@ -68,9 +66,9 @@ app.createServer((req, res) => {
                     break
 
                 default:
-                    res.writeHeader(404, {'Content-Type': 'text/plain'})
-                    res.end("Request was not support!!!")
-                    break
+                    res.writeHeader(404, {'Content-Type': 'text/plain'});
+                    res.end("Request was not support!!!");
+                    break;
             }
             break
         case 'PUT':

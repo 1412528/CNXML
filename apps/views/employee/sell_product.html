@@ -19,7 +19,7 @@
   <link href="../css/styles.css" rel="stylesheet">
 </head>
 
-<body onload="Xu_ly_Khoi_dong()" class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <a class="navbar-brand" href="/employee">Cashier Manager</a>
@@ -164,32 +164,6 @@
     <script src="../js/Xu_ly_Nhan_vien.js" ></script>
   </div>
 
-  <script type="text/javascript">
-  //*************** Biến dùng chung  ************
-  var Danh_sach_San_pham=[]
-  //*************** Biến Cố Khởi động  ************
-  function Xu_ly_Khoi_dong() {
-      Danh_sach_San_pham = Doc_Danh_sach_Mat_hang();
-  }
-
-  //*************** Biến Cố Yêu cầu Bán hàng  *************
-  function Xu_ly_Ban_hang(){    
-    $("table tbody").find('tr').each(function(){
-        var Ho_ten = $(this).find("td:eq(1)").text();
-        var Dia_chi = $(this).find("td:eq(2)").text();
-        var Ngay = $(this).find("td:eq(3)").text();
-        var Ma_san_pham = $(this).find("td:eq(4)").text();
-        var So_luong = $(this).find("td:eq(5)").text();
-        var Don_gia = $(this).find("td:eq(6)").text();
-        var Tien = $(this).find("td:eq(7)").text();
-        
-        Ban_hang(Ma_san_pham, So_luong, Don_gia, Tien, Ho_ten, Dia_chi, Ngay);
-    });
-    
-    
-  }
-
-  </script>
 </body>
 
 </html>

@@ -22,7 +22,7 @@ app.createServer((req, res) => {
             switch(req.url){
                 case '/Danh_sach_Mat_hang':
                     var Dia_chi_Dich_vu="http://localhost:3002";
-                    var Tham_so="Danh_Sach_Tivi";
+                    var Tham_so="Danh_Sach_Laptop";
                     var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`;
                     var Xu_ly_HTTP = new XMLHttpRequest();
                     Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false);
@@ -61,24 +61,31 @@ app.createServer((req, res) => {
                     // console.log(req.headers);
                     // console.log(req.body);
                     
-                    let body = [];
+                    var body = [];
                     req.on('data', (chunk) => {
                         body.push(chunk)
                     }).on('end', () => {
                         body = Buffer.concat(body).toString();
-                        console.log(JSON.parse(body).id);
-                        
+                        // console.log(JSON.parse(body)[0].Ho_ten);
+                        // var Danh_sach_San_pham = JSON.parse(body);
+                        var Dia_chi_Dich_vu="http://localhost:3002";
+                        var Tham_so="Ban_Laptop";
+                        var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`;
+                        var Xu_ly_HTTP = new XMLHttpRequest();
+                        Xu_ly_HTTP.open("POST",  Dia_chi_Xu_ly, false)
+                        Xu_ly_HTTP.setRequestHeader('Content-Type', 'application/json');
+                        Xu_ly_HTTP.send(body);
                     })
                    
                     res.writeHeader(200, {'Content-Type' : 'text/plain', 'Access-Control-Allow-Origin' : '*'});
-                    res.end("OK");
+                    res.end("");
                     break;
 
                 case '/login':
                     // console.log(req.headers)
                     // console.log(req.body)
 
-                    body = [];
+                    var body = [];
                     req.on('data', (chunk) => {
                         body.push(chunk)
                     }).on('end', () => {

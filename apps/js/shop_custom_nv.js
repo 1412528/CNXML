@@ -1,7 +1,14 @@
+//*************** Biến dùng chung  ************
+var Danh_sach_San_pham=[]
+//*************** Biến Cố Khởi động  ************
 $(document).ready(function()
 {
 	"use strict";
+	// Đọc danh sách sản phẩm
+	Danh_sach_San_pham = Doc_Danh_sach_Mat_hang();
+
 	var stt = 1;
+
 	// Thêm dòng
 	$(".add-row").click(function(){
 		//Nhập liệu
@@ -58,3 +65,21 @@ $(document).ready(function()
 		stt = 1;
     });
 });
+//*************** Biến Cố Yêu cầu Bán hàng  *************
+function Xu_ly_Ban_hang(){
+	var Danh_sach_ban = [];
+	$("table tbody").find('tr').each(function(){
+		var San_pham = {
+			Ho_ten : $(this).find("td:eq(1)").text(),
+			Dia_chi : $(this).find("td:eq(2)").text(),
+			Ngay : $(this).find("td:eq(3)").text(),
+			Ma_san_pham : $(this).find("td:eq(4)").text(),
+			So_luong : $(this).find("td:eq(5)").text(),
+			Don_gia : $(this).find("td:eq(6)").text(),
+			Tien : $(this).find("td:eq(7)").text()
+		}
+		Danh_sach_ban.push(San_pham);
+		
+	});
+	Ban_hang(Danh_sach_ban);
+}

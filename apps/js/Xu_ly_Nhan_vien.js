@@ -55,6 +55,25 @@ function Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach) {
   return Chuoi_HTML
 }
 //************** Xử lý Nghiệp vụ ***********
+function Tim_San_pham(Ma_so_San_pham, Danh_sach_San_pham){
+  var index = -1
+  for (var i = 0; i < Danh_sach_San_pham.getElementsByTagName("Laptop").length; i++) {
+    var San_pham = Danh_sach_San_pham.getElementsByTagName("Laptop")[i]
+    var Ma_so = San_pham.getAttribute("Ma_so")
+    if (Ma_so_San_pham == Ma_so) 
+      index = i
+  }
+  return index
+}
+function Ban_hang(Danh_sach_ban){
+  var Dia_chi_Dich_vu = "http://localhost:3001"
+  var Tham_so="Ban_hang"
+  var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`
+  var Xu_ly_HTTP = new XMLHttpRequest()
+  Xu_ly_HTTP.open("POST",  Dia_chi_Xu_ly, false)
+  Xu_ly_HTTP.setRequestHeader('Content-Type', 'application/json');
+  Xu_ly_HTTP.send(JSON.stringify(Danh_sach_ban));
+}
 // function Tra_cuu_Mat_hang(Chuoi_Tra_cuu, Danh_sach) {
 //   Chuoi_Tra_cuu = Chuoi_Tra_cuu.toUpperCase()
 //   var Tai_lieu = new DOMParser().parseFromString("<Danh_sach_Laptop /", "text/xml")
@@ -69,31 +88,6 @@ function Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach) {
 
 //   return Danh_sach_Kq
 // }
-function Tim_San_pham(Ma_so_San_pham, Danh_sach_San_pham){
-  var index = -1
-  for (var i = 0; i < Danh_sach_San_pham.getElementsByTagName("Laptop").length; i++) {
-    var San_pham = Danh_sach_San_pham.getElementsByTagName("Laptop")[i]
-    var Ma_so = San_pham.getAttribute("Ma_so")
-    if (Ma_so_San_pham == Ma_so) 
-      index = i
-  }
-  return index
-}
-function Ban_hang(Ma_san_pham, So_luong, Don_gia, Tien, Ho_ten, Dia_chi, Ngay){
-  var Danh_sach_ban = {
-    id : "Ma_san_pham",
-    num : "So_luong"
-  }
-
-  var Dia_chi_Dich_vu = "http://localhost:3001"
-  var Tham_so="Ban_hang"
-  var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`
-  var Xu_ly_HTTP = new XMLHttpRequest()
-  Xu_ly_HTTP.open("POST",  Dia_chi_Xu_ly, false)
-  Xu_ly_HTTP.setRequestHeader('Content-Type', 'application/json');
-  Xu_ly_HTTP.send(JSON.stringify(Danh_sach_ban));
-  console.log(Xu_ly_HTTP.responseText);
-}
 // ************** Xử lý Lưu trữ *********** 
 function Doc_Danh_sach_Mat_hang() { 
   var Dia_chi_Dich_vu="http://localhost:3001"
