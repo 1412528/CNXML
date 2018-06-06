@@ -32,6 +32,15 @@ table th, table td{
 .form_sell_product label {
     margin-bottom: 0px;
 }
+b {
+	float: left;
+	margin-top: 10px;
+}
+
+p#Th_Tong_cong {
+	margin-left:  95px;
+	margin-top: 10px;
+}
 /* Shop MH_Chinh */
 .shop
 {

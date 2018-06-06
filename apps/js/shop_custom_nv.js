@@ -1,5 +1,6 @@
 //*************** Biến dùng chung  ************
 var Danh_sach_San_pham=[]
+var Tong_Doanh_thu = 0;
 //*************** Biến Cố Khởi động  ************
 $(document).ready(function()
 {
@@ -41,6 +42,8 @@ $(document).ready(function()
 			}
 			$("#Th_Ho_ten").attr("disabled", "disabled");
 			$("#Th_Address").attr("disabled", "disabled");
+			Tong_Doanh_thu += So_luong*Don_gia;
+			$("#Th_Tong_cong").text(Tong_Doanh_thu);
 		}
 		else{ // Xử lý Khi Không Hợp lệ
 			var Chuoi_HTML_Loi = "" 
@@ -65,6 +68,8 @@ $(document).ready(function()
 			$(this).remove();
 		});
 		stt = 1;
+		Tong_Doanh_thu = 0;
+		$("#Th_Tong_cong").text(Tong_Doanh_thu);
     });
 });
 //*************** Biến Cố Yêu cầu Bán hàng  *************
@@ -73,7 +78,8 @@ function Xu_ly_Ban_hang(){
 	var Phieu = {
 		Ho_ten : $("table tbody").find('tr:eq(1)').find("td:eq(1)").text(),
 		Dia_chi : $("table tbody").find('tr:eq(1)').find("td:eq(2)").text(),
-		Ngay : $("table tbody").find('tr:eq(1)').find("td:eq(3)").text()
+		Ngay : $("table tbody").find('tr:eq(1)').find("td:eq(3)").text(),
+		Tong_Doanh_thu: Tong_Doanh_thu
 	};
 	Danh_sach_ban.push(Phieu);
 	$("table tbody").find('tr').each(function(){

@@ -41,7 +41,6 @@ app.createServer((req, res) => {
                     }).on('end', () => {
                         body = Buffer.concat(body).toString();
                         var Danh_sach_San_pham = JSON.parse(body);
-                        
                         postMethod.Ban_Laptop(Danh_sach_San_pham);
                     })
                 
