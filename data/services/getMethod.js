@@ -7,7 +7,7 @@ var xml2js = require("xml2js");
 var danhSach_Laptop= [];
 
 class GET_METHOD {
-  Doc_Du_lieu() {
+  Doc_Danh_Sach_Laptop() {
     File.readdirSync(Duong_dan_Thu_muc_Du_lieu + '/Laptop/').forEach(file =>{
       var filePath = Duong_dan_Thu_muc_Du_lieu + '/Laptop/' + file;
       var Chuoi_XML = File.readFileSync(filePath, "UTF-8");

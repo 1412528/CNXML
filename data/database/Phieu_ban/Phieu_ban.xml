@@ -1,6 +1,9 @@
 <Danh_sach_Phieu_ban>
-    <Phieu_ban Ma_so="" Ngay="" >
-        
+    <Phieu_ban Ma_so="" Ngay="" Ho_ten="" Dia_chi="" >
+        <Laptop Ten="Laptop Asus S510UA" Ma_so="LAPTOP_1" Don_gia_Ban="16200000" So_luong="10" Doanh_thu="18424200">
     </Phieu_ban>
+	<Phieu_ban Ma_so="" Ngay="6-6-2018" Ho_ten="thọ" Dia_chi="556">
+		<Laptop Ma_so="LAPTOP_3" Don_gia_Ban="13200000" So_luong="3" Doanh_thu="39600000">
+		<Laptop Ma_so="LAPTOP_23" Don_gia_Ban="19400000" So_luong="4" Doanh_thu="77600000">
+	</Phieu_ban>
 </Danh_sach_Phieu_ban>
-    

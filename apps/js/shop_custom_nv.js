@@ -20,7 +20,7 @@ $(document).ready(function()
 		var San_pham_index = Tim_San_pham(Ma_so_San_pham, Danh_sach_San_pham);
 		
 		//Kiểm tra
-		var Dieu_kien_1 = San_pham_index != -1 && (!isNaN(So_luong) && So_luong > 0);    
+		var Dieu_kien_1 = San_pham_index != -1 && (!isNaN(So_luong) && So_luong > 0 && Ho_ten != "" && Dia_chi != "");    
 		if(Dieu_kien_1){
 			var So_luong_Ton = parseInt(Danh_sach_San_pham.getElementsByTagName("Laptop")[San_pham_index].getAttribute("So_luong_Ton"));
 			var Don_gia = parseInt(Danh_sach_San_pham.getElementsByTagName("Laptop")[San_pham_index].getAttribute("Don_gia_Ban"));
@@ -39,6 +39,8 @@ $(document).ready(function()
 				$("table tbody").append(markup);
 				stt++;		
 			}
+			$("#Th_Ho_ten").attr("disabled", "disabled");
+			$("#Th_Address").attr("disabled", "disabled");
 		}
 		else{ // Xử lý Khi Không Hợp lệ
 			var Chuoi_HTML_Loi = "" 
@@ -68,18 +70,20 @@ $(document).ready(function()
 //*************** Biến Cố Yêu cầu Bán hàng  *************
 function Xu_ly_Ban_hang(){
 	var Danh_sach_ban = [];
+	var Phieu = {
+		Ho_ten : $("table tbody").find('tr:eq(1)').find("td:eq(1)").text(),
+		Dia_chi : $("table tbody").find('tr:eq(1)').find("td:eq(2)").text(),
+		Ngay : $("table tbody").find('tr:eq(1)').find("td:eq(3)").text()
+	};
+	Danh_sach_ban.push(Phieu);
 	$("table tbody").find('tr').each(function(){
 		var San_pham = {
-			Ho_ten : $(this).find("td:eq(1)").text(),
-			Dia_chi : $(this).find("td:eq(2)").text(),
-			Ngay : $(this).find("td:eq(3)").text(),
 			Ma_san_pham : $(this).find("td:eq(4)").text(),
 			So_luong : $(this).find("td:eq(5)").text(),
 			Don_gia : $(this).find("td:eq(6)").text(),
 			Tien : $(this).find("td:eq(7)").text()
 		}
 		Danh_sach_ban.push(San_pham);
-		
 	});
 	Ban_hang(Danh_sach_ban);
 }
