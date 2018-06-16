@@ -8,6 +8,7 @@ var danhSach_Laptop= [];
 
 class GET_METHOD {
   Doc_Danh_Sach_Laptop() {
+    danhSach_Laptop.length = [];
     File.readdirSync(Duong_dan_Thu_muc_Du_lieu + '/Laptop/').forEach(file =>{
       var filePath = Duong_dan_Thu_muc_Du_lieu + '/Laptop/' + file;
       var Chuoi_XML = File.readFileSync(filePath, "UTF-8");
@@ -26,14 +27,14 @@ class GET_METHOD {
   //   var Nha_hang = JSON.parse(ChuoiJSON);
   //   return Nha_hang;
   // }
-  Ghi_Du_lieu(Du_lieu){
-    var Chuoi_XML = new XMLSerializer().serializeToString(Du_lieu)
-    File.writeFile(Duong_dan, Chuoi_XML, err => {
-      if (err != null) console.log("--> Cannot create file Result.xml");
-      else console.log("---> DONE XML <---");
-    });
+  // Ghi_Du_lieu(Du_lieu){
+  //   var Chuoi_XML = new XMLSerializer().serializeToString(Du_lieu)
+  //   File.writeFile(Duong_dan, Chuoi_XML, err => {
+  //     if (err != null) console.log("--> Cannot create file Result.xml");
+  //     else console.log("---> DONE XML <---");
+  //   });
     
-  }
+  // }
   // Ghi_Thong_tin_Nha_hang(Nha_hang){
   //   var Chuoi_JSON = JSON.stringify(Nha_hang);
   //   File.writeFile(Duong_dan_Thu_muc_Du_lieu + "/Nha_hang/Nha_hang.json", Chuoi_JSON, err=>{

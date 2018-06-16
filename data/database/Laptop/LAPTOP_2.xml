@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop HP Pavilion x360 ba063TU" Ma_so="LAPTOP_2" Don_gia_Ban="13200000" Don_gia_Nhap="18500000" So_luong_Ton="20" Doanh_thu="15012400000" Trang_thai="">
-	<Nhom_Laptop Ten="HP" Ma_so="HP"/>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Laptop Ten="Laptop HP Pavilion x360 ba063TU" Ma_so="LAPTOP_2" Don_gia_Ban="13200000" Don_gia_Nhap="18500000" So_luong_Ton="36" Doanh_thu="15712000000" Trang_thai="">
+  <Nhom_Laptop Ten="HP" Ma_so="HP"/>
 </Laptop>

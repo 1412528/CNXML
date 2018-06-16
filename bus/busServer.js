@@ -28,7 +28,7 @@ app.createServer((req, res) => {
                     Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false);
                     Xu_ly_HTTP.send();
                     var data = Xu_ly_HTTP.responseText;
-                    // console.log(data);
+                    console.log(data);
                     
                     res.writeHeader(200, {'Content-Type': 'text/xml', 'Access-Control-Allow-Origin' : '*'});
                     res.end(data);
@@ -75,10 +75,11 @@ app.createServer((req, res) => {
                         Xu_ly_HTTP.open("POST",  Dia_chi_Xu_ly, false)
                         Xu_ly_HTTP.setRequestHeader('Content-Type', 'application/json');
                         Xu_ly_HTTP.send(body);
+                        var ds_Laptop = Xu_ly_HTTP.responseText;
+                        // console.log(ds_Laptop);
+                        res.writeHeader(200, {'Content-Type': 'text/xml', 'Access-Control-Allow-Origin' : '*'});
+                        res.end(ds_Laptop);
                     })
-                   
-                    res.writeHeader(200, {'Content-Type' : 'text/plain', 'Access-Control-Allow-Origin' : '*'});
-                    res.end("");
                     break;
 
                 case '/login':

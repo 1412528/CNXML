@@ -7,7 +7,8 @@ $(document).ready(function()
 	"use strict";
 	// Đọc danh sách sản phẩm
 	Danh_sach_San_pham = Doc_Danh_sach_Mat_hang();
-
+	console.log(Danh_sach_San_pham);
+	
 	var stt = 1;
 
 	// Thêm dòng
@@ -63,13 +64,19 @@ $(document).ready(function()
 		}
 	});
 	// Tìm và xóa toàn bộ dòng
-	$(".sell_product").click(function(){
+	$(".sell_product").click( function(){
 		$("table tbody").find('tr').each(function(){
 			$(this).remove();
 		});
 		stt = 1;
 		Tong_Doanh_thu = 0;
 		$("#Th_Tong_cong").text(Tong_Doanh_thu);
+		$("#Th_Ho_ten").attr("disabled", false);
+		$("#Th_Address").attr("disabled", false);
+		$("#Th_Ho_ten").attr("value", "");
+		$("#Th_Address").attr("value", "");	
+		$("#Th_Ma_so_San_pham").attr("value", "");
+		$("#Th_So_luong").attr("value", "");
     });
 });
 //*************** Biến Cố Yêu cầu Bán hàng  *************
@@ -91,5 +98,6 @@ function Xu_ly_Ban_hang(){
 		}
 		Danh_sach_ban.push(San_pham);
 	});
-	Ban_hang(Danh_sach_ban);
+	Danh_sach_San_pham = Ban_hang(Danh_sach_ban);
+	console.log(Danh_sach_San_pham);
 }

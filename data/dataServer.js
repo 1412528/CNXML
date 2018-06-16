@@ -6,7 +6,7 @@ var Port = 3002;
 var getMethod = require("./services/getMethod.js");
 var postMethod = require("./services/postMethod.js");
 
-var Danh_Sach_Laptop = getMethod.Doc_Danh_Sach_Laptop();
+var Danh_Sach_Laptop;
 // var Danh_Sach_Phieu_ban = 
 // var Nha_hang = getMethod.Doc_Thong_tin_Nha_hang();
 
@@ -18,8 +18,8 @@ app.createServer((req, res) => {
             switch(req.url){
                 case '/Danh_Sach_Laptop':
                     res.writeHeader(200, {'Content-Type': 'text/xml'});
-                    var data = Danh_Sach_Laptop;
-                    res.end(data);
+                    Danh_Sach_Laptop = getMethod.Doc_Danh_Sach_Laptop();
+                    res.end(Danh_Sach_Laptop);
                     break;
 
                 default:
@@ -41,11 +41,16 @@ app.createServer((req, res) => {
                     }).on('end', () => {
                         body = Buffer.concat(body).toString();
                         var Danh_sach_San_pham = JSON.parse(body);
+
                         postMethod.Ban_Laptop(Danh_sach_San_pham);
-                    })
-                
-                    res.writeHeader(200, {'Content-Type' : 'text/plain', 'Access-Control-Allow-Origin' : '*'});
-                    res.end("");
+                    });
+                    setTimeout(() => {
+                        Danh_Sach_Laptop = getMethod.Doc_Danh_Sach_Laptop();
+                        // console.log(Danh_Sach_Laptop);
+                        res.writeHeader(200, {'Content-Type': 'text/xml', 'Access-Control-Allow-Origin' : '*'});
+                        res.end(Danh_Sach_Laptop);
+                    }, 5000);
+                    
                     break;
                 case '/login':
                     // console.log(req.headers)

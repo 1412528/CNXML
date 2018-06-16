@@ -16,13 +16,15 @@ class POST_METHOD{
                 console.log(error.message);
             }
             else{
-                File.write(fd, Chuoi_XML, pos, "utf8", function(error, bytesRead, data) {
-                    if (error) {
-                        console.error("close error:  " + error.message);
-                    }else {
-                        console.log(data);
-                    }
-                });
+                // var bytesRead = Buffer.byteLength(Chuoi_XML, 'utf8');
+                File.writeSync(fd, Chuoi_XML, pos, "utf8");
+                // , function(error, data) {
+                //     if (error) {
+                //         console.error("close error:  " + error.message);
+                //     }else {
+                //         console.log(data);
+                //     }
+                // });
                 File.close(fd, function(error) {
                     if (error) {
                         console.error("close error:  " + error.message);
@@ -35,31 +37,31 @@ class POST_METHOD{
     }
     Ban_Laptop(Danh_sach_San_pham){
         var Danh_sach_Phieu_ban = this.Doc_Danh_sach_Phieu_ban();
-        var Chuoi_XML = `</Phieu_ban>\n\t<Phieu_ban Ma_so="" Ngay="${Danh_sach_San_pham[0].Ngay}" Ho_ten="${Danh_sach_San_pham[0].Ho_ten}" Dia_chi="${Danh_sach_San_pham[0].Dia_chi}" Tong_Doanh_thu="${Danh_sach_San_pham[0].Tong_Doanh_thu}">\n`;
+        var pos = Danh_sach_Phieu_ban.lastIndexOf("</Danh_sach_Phieu_ban>");
+        var Chuoi_XML = `\t<Phieu_ban Ma_so="" Ngay="${Danh_sach_San_pham[0].Ngay}" Ho_ten="${Danh_sach_San_pham[0].Ho_ten}" Dia_chi="${Danh_sach_San_pham[0].Dia_chi}" Tong_Doanh_thu="${Danh_sach_San_pham[0].Tong_Doanh_thu}">\n`;
         // Tạo node Phiếu bán
         for (let index = 1; index < Danh_sach_San_pham.length; index++) {
             Chuoi_XML += `\t\t<Laptop Ma_so="${Danh_sach_San_pham[index].Ma_san_pham}" Don_gia_Ban="${Danh_sach_San_pham[index].Don_gia}" So_luong="${Danh_sach_San_pham[index].So_luong}" Doanh_thu="${Danh_sach_San_pham[index].Tien}">\n`;
-            // Cập nhật số lượng
-            var laptop = File.readFileSync(Duong_dan_Thu_muc_Du_lieu + `/Laptop/${Danh_sach_San_pham[index].Ma_san_pham}.xml`, "UTF-8");
-            
-            var parser = new xml2js.Parser();
-            parser.parseString(laptop, function (err, result) {
-                result.Laptop.$.So_luong_Ton = parseInt(result.Laptop.$.So_luong_Ton) - parseInt(Danh_sach_San_pham[index].So_luong);
-                result.Laptop.$.Doanh_thu = parseInt(result.Laptop.$.Doanh_thu) + parseInt(Danh_sach_San_pham[index].Tien);
-                
-                var builder = new xml2js.Builder();
-                var xml = builder.buildObject(result);
-                File.writeFile(Duong_dan_Thu_muc_Du_lieu + `/Laptop/${Danh_sach_San_pham[index].Ma_san_pham}.xml`, xml, err => {
-                    if (err != null) console.log("--> Cannot create file Result.xml");
-                    else console.log("---> DONE update <---");
-                });
-            })
-            
+            // Cập nhật laptop
+            this.Cap_nhat_Laptop_da_ban(Danh_sach_San_pham[index]);
             
         }
         Chuoi_XML += "\t</Phieu_ban>\n</Danh_sach_Phieu_ban>";
         // Ghi phiếu bán
-        //this.Ghi_Phieu_ban(Chuoi_XML, Danh_sach_Phieu_ban.lastIndexOf("</Phieu_ban>"));
+        //this.Ghi_Phieu_ban(Chuoi_XML, pos);
+        
+    }
+    Cap_nhat_Laptop_da_ban(San_pham){
+        var laptop = File.readFileSync(Duong_dan_Thu_muc_Du_lieu + `/Laptop/${San_pham.Ma_san_pham}.xml`, "UTF-8");
+        var parser = new xml2js.Parser();
+        parser.parseString(laptop, function (err, result) {
+            result.Laptop.$.So_luong_Ton = parseInt(result.Laptop.$.So_luong_Ton) - parseInt(San_pham.So_luong);
+            result.Laptop.$.Doanh_thu = parseInt(result.Laptop.$.Doanh_thu) + parseInt(San_pham.Tien);
+            
+            var builder = new xml2js.Builder();
+            var xml = builder.buildObject(result);
+            File.writeFileSync(Duong_dan_Thu_muc_Du_lieu + `/Laptop/${San_pham.Ma_san_pham}.xml`, xml);
+        });
     }
     // Tinh_Doanh_thu_Nhan_vien(Nha_hang, Ho_ten, Tien_ban){
     //     for (let index = 0; index < Nha_hang.Danh_sach_Nhan_vien.Nhan_vien_Ban_hang.length; index++) {
