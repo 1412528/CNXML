@@ -36,7 +36,6 @@ class POST_METHOD{
             Chuoi_XML += `\t\t<Laptop Ma_so="${Danh_sach_San_pham[index].Ma_san_pham}" Don_gia_Ban="${Danh_sach_San_pham[index].Don_gia}" So_luong="${Danh_sach_San_pham[index].So_luong}" Doanh_thu="${Danh_sach_San_pham[index].Tien}">\n`;
             // Cập nhật laptop
             this.Cap_nhat_Laptop_da_ban(Danh_sach_San_pham[index]);
-            
         }
         Chuoi_XML += "\t</Phieu_ban>\n</Danh_sach_Phieu_ban>";
         // Ghi phiếu bán
@@ -48,6 +47,18 @@ class POST_METHOD{
         parser.parseString(laptop, function (err, result) {
             result.Laptop.$.So_luong_Ton = parseInt(result.Laptop.$.So_luong_Ton) - parseInt(San_pham.So_luong);
             result.Laptop.$.Doanh_thu = parseInt(result.Laptop.$.Doanh_thu) + parseInt(San_pham.Tien);
+            
+            var builder = new xml2js.Builder();
+            var xml = builder.buildObject(result);
+            File.writeFileSync(Duong_dan_Thu_muc_Du_lieu + `/Laptop/${San_pham.Ma_san_pham}.xml`, xml);
+        });
+    }
+    Cap_nhat_Laptop(San_pham){
+        var laptop = File.readFileSync(Duong_dan_Thu_muc_Du_lieu + `/Laptop/${San_pham.Ma_san_pham}.xml`, "UTF-8");
+        var parser = new xml2js.Parser();
+        parser.parseString(laptop, function (err, result) {
+            result.Laptop.$.Don_gia_Ban = San_pham.Don_gia_Ban;
+            result.Laptop.$.Trang_thai = San_pham.Tinh_trang;
             
             var builder = new xml2js.Builder();
             var xml = builder.buildObject(result);

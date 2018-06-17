@@ -11,7 +11,7 @@
   <!-- Bootstrap core CSS-->
   <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="../assets/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="../assets/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
@@ -28,7 +28,7 @@
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
             <a class="nav-link" href="/admin">
-              <i class="fa fa-fw fa-dashboard"></i>
+              <i class="fas fa-tachometer-alt"></i>
               <span class="nav-link-text">Dashboard</span>
             </a>
           </li>
@@ -57,7 +57,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-              <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+              <i class="fas fa-sign-out-alt"></i>Logout</a>
           </li>
         </ul>
       </div>
@@ -76,8 +76,24 @@
         <div class="card-header">
           <i class="fa fa-table"></i> Change Product</div>
         <div class="card-body">
-          <!-- Form Bán Sản Phẩm -->
-          
+          <!-- Danh sách Sản Phẩm -->
+          <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Revenue</th>
+                    <th>Status</th>
+                    <th>Tool</th>
+                </tr>
+            </thead>
+            <tbody id="list">
+
+            </tbody>
+        </table>
         </div>
       </div>
     </div>
@@ -110,42 +126,51 @@
         </div>
       </div>
     </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="../assets/jquery/jquery.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="../assets/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="../assets/datatables/jquery.dataTables.js"></script>
-    <script src="../assets/datatables/dataTables.bootstrap4.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin.min.js"></script>
-    <script src="../js/shop_custom.js"></script>
-    <!-- Custom scripts for this page-->
-    <script src="../js/sb-admin-datatables.min.js"></script>
-    <script src="../js/Xu_ly_Quan_ly.js" ></script>
   </div>
+  <!-- Form update product -->
+  <div class="update_product">
+    <div class="card">
+      <h5 class="card-header">Update Product</h5>
+      <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="Th_update_Price">Price</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="Th_update_Price" value="">
+                </div>
+            </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="Th_update_Status">Status</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="Th_update_Status">
+                    <option value="Open">Open</option>
+                    <option value="Closed">Closed</option>
+                  </select>
+                </div>
+            </div>
+        </form>
+        <button type="button" class="btn save_form_update">Save</button>
+        <button type="button" class="btn close_form_update">Close</button>
+      </div>
+    </div>
+    
+  </div>
+  <div class="cover"></div>
 
-  <script type="text/javascript">
-    function setDone(index){
-      var table = $('#dataTable').DataTable();
-      var row = table.row(index).node();
-      $(row).css("background-color","LimeGreen");
-    }
-
-    function setDelivering(index){
-      var table = $('#dataTable').DataTable();
-      var row = table.row(index).node();
-      $(row).css("background-color","RoyalBlue");
-    }
-
-    function setNotApproved(index){
-      var table = $('#dataTable').DataTable();
-      var row = table.row(index).node();
-      $(row).css("background-color","pink");
-    }
-  </script>
 </body>
-
+<!-- Bootstrap core JavaScript-->
+<script src="../assets/jquery/jquery.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="../assets/jquery-easing/jquery.easing.min.js"></script>
+<!-- Page level plugin JavaScript-->
+<script src="../assets/datatables/jquery.dataTables.js"></script>
+<script src="../assets/datatables/dataTables.bootstrap4.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="../js/sb-admin.min.js"></script>
+<script src="../js/shop_custom.js"></script>
+<!-- Custom scripts for this page-->
+<script src="../js/sb-admin-datatables.min.js"></script>
+<script src="../js/Xu_ly_Quan_ly.js" ></script>
+<script src="../js/shop_custom_ad.js"></script>
 </html>

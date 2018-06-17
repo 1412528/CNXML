@@ -10,14 +10,14 @@ function Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach) {
     var Ten = Laptop.getAttribute("Ten")
     var Ma_so = Laptop.getAttribute("Ma_so")
     var Don_gia_Ban = parseInt(Laptop.getAttribute("Don_gia_Ban"))
-    var Trang_thai = Laptop.getAttribute("Trang_thai_Con_hang")
-    var Th_Trang_thai
-    if(Trang_thai === "false")
-      Th_Trang_thai = "Hết hàng"
-    else if(Trang_thai == null || Trang_thai == "true"){
-      Th_Trang_thai = "Còn hàng"
-    }
-
+    // var Trang_thai = Laptop.getAttribute("Trang_thai_Con_hang")
+    // var Th_Trang_thai
+    // if(Trang_thai === "false")
+    //   Th_Trang_thai = "Hết hàng"
+    // else if(Trang_thai == null || Trang_thai == "true"){
+    //   Th_Trang_thai = "Còn hàng"
+    // }
+    
     var Th_Hinh_div = document.createElement("div")
     Th_Hinh_div.className = "product_image d-flex flex-column align-items-center justify-content-center"
     var Th_Hinh_img = document.createElement("img")
@@ -55,6 +55,19 @@ function Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach) {
   return Chuoi_HTML
 }
 //************** Xử lý Nghiệp vụ ***********
+function Cap_nhat_San_pham(id, price, status) {
+  var Dia_chi_Dich_vu="http://localhost:3001"
+  var Tham_so="Cap_nhat_Mat_hang"
+  var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`
+  var Xu_ly_HTTP = new XMLHttpRequest()
+  Xu_ly_HTTP.open("POST",  Dia_chi_Xu_ly, false)
+  Xu_ly_HTTP.setRequestHeader('Content-Type', 'application/json');
+  Xu_ly_HTTP.send(JSON.stringify({Ma_san_pham: id, Don_gia_Ban: price, Tinh_trang: status}));
+  var Chuoi_XML = Xu_ly_HTTP.responseText; 
+  var Du_lieu = new DOMParser().parseFromString(Chuoi_XML, "text/xml").documentElement;
+  return Du_lieu;
+}
+
 // function Tra_cuu_Mat_hang(Chuoi_Tra_cuu, Danh_sach) {
 //   Chuoi_Tra_cuu = Chuoi_Tra_cuu.toUpperCase()
 //   var Tai_lieu = new DOMParser().parseFromString("<Danh_sach_Laptop /", "text/xml")
@@ -69,28 +82,7 @@ function Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach) {
 
 //   return Danh_sach_Kq
 // }
-// function Tim_Tivi(Ma_so_Tivi, Danh_sach_Tivi){
-//   var index = -1
-//   for (var i = 0; i < Danh_sach_Tivi.getElementsByTagName("Tivi").length; i++) {
-//     var Tivi = Danh_sach_Tivi.getElementsByTagName("Tivi")[i]
-//     var Ma_so = Tivi.getAttribute("Ma_so")
-//     if (Ma_so_Tivi == Ma_so) 
-//       index = i
-//   }
-//   return index
-// }
-// function Ban_hang(Ho_ten, Tivi_index, So_luong){
-//   var Dia_chi_Dich_vu = "http://localhost:1000"
-//   var Tham_so = `Ma_so_Xu_ly=Ban_Tivi&Ho_ten=${Ho_ten}&Tivi_index=${Tivi_index}&So_luong=${So_luong}`
-//   var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}?${Tham_so}`
-//   var Xu_ly_HTTP = new XMLHttpRequest()
-//   Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false)
-//   Xu_ly_HTTP.send("")
-//   var Chuoi_XML = Xu_ly_HTTP.responseText
-//   var Du_lieu = new DOMParser().parseFromString(Chuoi_XML, "text/xml").documentElement
-//   var Danh_sach_Tivi=Du_lieu.getElementsByTagName("Danh_sach_Tivi")[0]
-//   return Danh_sach_Tivi
-// }
+
 // ************** Xử lý Lưu trữ *********** 
 function Doc_Danh_sach_Mat_hang() { 
   var Dia_chi_Dich_vu="http://localhost:3001"
@@ -114,13 +106,3 @@ function Doc_Danh_sach_Mat_hang() {
 //   Chuoi_JSON = JSON.parse(Xu_ly_HTTP.responseText)
 //   return Chuoi_JSON;
 // }
-// function Doc_Doanh_thu_Nhan_vien(Ho_ten){
-//   var Dia_chi_Dich_vu = "http://localhost:1000"
-//   var Tham_so = `Ma_so_Xu_ly=Doc_Doanh_thu_Nhan_vien&Ho_ten=${Ho_ten}`
-//   var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}?${Tham_so}`
-//   var Xu_ly_HTTP = new XMLHttpRequest()
-//   Xu_ly_HTTP.open("GET",  Dia_chi_Xu_ly, false)
-//   Xu_ly_HTTP.send("")
-//   return Xu_ly_HTTP.responseText;
-// }
-

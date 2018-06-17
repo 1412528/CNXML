@@ -66,8 +66,7 @@ app.createServer((req, res) => {
                         body.push(chunk)
                     }).on('end', () => {
                         body = Buffer.concat(body).toString();
-                        // console.log(JSON.parse(body)[0].Ho_ten);
-                        // var Danh_sach_San_pham = JSON.parse(body);
+
                         var Dia_chi_Dich_vu="http://localhost:3002";
                         var Tham_so="Ban_Laptop";
                         var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`;
@@ -77,6 +76,26 @@ app.createServer((req, res) => {
                         Xu_ly_HTTP.send(body);
                         var ds_Laptop = Xu_ly_HTTP.responseText;
                         // console.log(ds_Laptop);
+                        res.writeHeader(200, {'Content-Type': 'text/xml', 'Access-Control-Allow-Origin' : '*'});
+                        res.end(ds_Laptop);
+                    })
+                    break;
+                case '/Cap_nhat_Mat_hang':                    
+                    var body = [];
+                    req.on('data', (chunk) => {
+                        body.push(chunk)
+                    }).on('end', () => {
+                        body = Buffer.concat(body).toString();
+                        // console.log(JSON.parse(body));
+                        
+                        var Dia_chi_Dich_vu="http://localhost:3002";
+                        var Tham_so="Cap_nhat_Laptop";
+                        var Dia_chi_Xu_ly=`${Dia_chi_Dich_vu}/${Tham_so}`;
+                        var Xu_ly_HTTP = new XMLHttpRequest();
+                        Xu_ly_HTTP.open("POST",  Dia_chi_Xu_ly, false)
+                        Xu_ly_HTTP.setRequestHeader('Content-Type', 'application/json');
+                        Xu_ly_HTTP.send(body);
+                        var ds_Laptop = Xu_ly_HTTP.responseText;
                         res.writeHeader(200, {'Content-Type': 'text/xml', 'Access-Control-Allow-Origin' : '*'});
                         res.end(ds_Laptop);
                     })

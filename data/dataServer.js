@@ -46,10 +46,27 @@ app.createServer((req, res) => {
                     });
                     setTimeout(() => {
                         Danh_Sach_Laptop = getMethod.Doc_Danh_Sach_Laptop();
+                        res.writeHeader(200, {'Content-Type': 'text/xml', 'Access-Control-Allow-Origin' : '*'});
+                        res.end(Danh_Sach_Laptop);
+                    }, 3000);
+                    
+                    break;
+                case '/Cap_nhat_Laptop':
+                    var body = [];
+                    req.on('data', (chunk) => {
+                        body.push(chunk)
+                    }).on('end', () => {
+                        body = Buffer.concat(body).toString();
+                        var San_pham = JSON.parse(body);
+                        
+                        postMethod.Cap_nhat_Laptop(San_pham);
+                    });
+                    setTimeout(() => {
+                        Danh_Sach_Laptop = getMethod.Doc_Danh_Sach_Laptop();
                         // console.log(Danh_Sach_Laptop);
                         res.writeHeader(200, {'Content-Type': 'text/xml', 'Access-Control-Allow-Origin' : '*'});
                         res.end(Danh_Sach_Laptop);
-                    }, 5000);
+                    }, 3000);
                     
                     break;
                 case '/login':
