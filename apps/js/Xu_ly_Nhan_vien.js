@@ -34,8 +34,8 @@ function Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach) {
     Th_Ten.className = "product_name"
     Th_Ten.innerHTML = `${Ten}`
     var Th_So_luong_ton = document.createElement("div")
-    Th_So_luong_ton.className = "product_price"
-    Th_So_luong_ton.innerHTML = `${So_luong_ton}`
+    // Th_So_luong_ton.className = "product_price"
+    Th_So_luong_ton.innerHTML = `Số lượng: ${So_luong_ton}`
 
     Th_Thong_tin.appendChild(Th_Gia_Ban)
     Th_Thong_tin.appendChild(Th_Ten)

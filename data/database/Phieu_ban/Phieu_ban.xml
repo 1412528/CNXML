@@ -2,4 +2,15 @@
 	<Phieu_ban Ma_so="" Ngay="" Ho_ten="" Dia_chi="" Tong_Doanh_thu="81000000">
 		<Laptop Ma_so="LAPTOP_1" Don_gia_Ban="16200000" So_luong="5" Doanh_thu="81000000">
 	</Phieu_ban>
+	<Phieu_ban Ma_so="" Ngay="17-6-2018" Ho_ten="LAPTOP_1" Dia_chi="LAPTOP_1" Tong_Doanh_thu="51000000">
+		<Laptop Ma_so="LAPTOP_1" Don_gia_Ban="16200000" So_luong="1" Doanh_thu="16200000">
+		<Laptop Ma_so="LAPTOP_12" Don_gia_Ban="11600000" So_luong="3" Doanh_thu="34800000">
+	</Phieu_ban>
+	<Phieu_ban Ma_so="" Ngay="17-6-2018" Ho_ten="LAPTOP_1222222" Dia_chi="LAPTOP_1" Tong_Doanh_thu="394000000">
+		<Laptop Ma_so="LAPTOP_12" Don_gia_Ban="11600000" So_luong="33" Doanh_thu="382800000">
+		<Laptop Ma_so="LAPTOP_13" Don_gia_Ban="11200000" So_luong="1" Doanh_thu="11200000">
+	</Phieu_ban>
+	<Phieu_ban Ma_so="" Ngay="" Ho_ten="" Dia_chi="" Tong_Doanh_thu="16200000">
+		<Laptop Ma_so="LAPTOP_1" Don_gia_Ban="16200000" So_luong="1" Doanh_thu="16200000">
+	</Phieu_ban>
 </Danh_sach_Phieu_ban>

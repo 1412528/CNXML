@@ -7,7 +7,6 @@ $(document).ready(function()
 	"use strict";
 	// Đọc danh sách sản phẩm
 	Danh_sach_San_pham = Doc_Danh_sach_Mat_hang();
-	console.log(Danh_sach_San_pham);
 	
 	var stt = 1;
 
@@ -99,5 +98,4 @@ function Xu_ly_Ban_hang(){
 		Danh_sach_ban.push(San_pham);
 	});
 	Danh_sach_San_pham = Ban_hang(Danh_sach_ban);
-	console.log(Danh_sach_San_pham);
 }

@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop Lenovo Ideapad 320 14ISK " Ma_so="LAPTOP_12" Don_gia_Ban="11600000" Don_gia_Nhap="18500000" So_luong_Ton="70" Doanh_thu="78420000000"  Trang_thai="">
-	<Nhom_Laptop Ten="Lenovo" Ma_so="LENOVO"/>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Laptop Ten="Laptop Lenovo Ideapad 320 14ISK " Ma_so="LAPTOP_12" Don_gia_Ban="11600000" Don_gia_Nhap="18500000" So_luong_Ton="34" Doanh_thu="78837600000" Trang_thai="">
+  <Nhom_Laptop Ten="Lenovo" Ma_so="LENOVO"/>
 </Laptop>

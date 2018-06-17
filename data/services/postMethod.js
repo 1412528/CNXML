@@ -16,15 +16,7 @@ class POST_METHOD{
                 console.log(error.message);
             }
             else{
-                // var bytesRead = Buffer.byteLength(Chuoi_XML, 'utf8');
                 File.writeSync(fd, Chuoi_XML, pos, "utf8");
-                // , function(error, data) {
-                //     if (error) {
-                //         console.error("close error:  " + error.message);
-                //     }else {
-                //         console.log(data);
-                //     }
-                // });
                 File.close(fd, function(error) {
                     if (error) {
                         console.error("close error:  " + error.message);
@@ -48,8 +40,7 @@ class POST_METHOD{
         }
         Chuoi_XML += "\t</Phieu_ban>\n</Danh_sach_Phieu_ban>";
         // Ghi phiếu bán
-        //this.Ghi_Phieu_ban(Chuoi_XML, pos);
-        
+        this.Ghi_Phieu_ban(Chuoi_XML, pos);
     }
     Cap_nhat_Laptop_da_ban(San_pham){
         var laptop = File.readFileSync(Duong_dan_Thu_muc_Du_lieu + `/Laptop/${San_pham.Ma_san_pham}.xml`, "UTF-8");
