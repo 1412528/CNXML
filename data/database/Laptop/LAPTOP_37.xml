@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop Apple Macbook Pro Touch MPTR2SA/A i7" Ma_so="LAPTOP_37" Don_gia_Ban="53200000" Don_gia_Nhap="18500000" So_luong_Ton="40" Doanh_thu="575000000000"  Trang_thai="Closed">
+<Laptop Ten="Laptop Apple Macbook Pro Touch MPTR2SA/A i7" Ma_so="LAPTOP_37" Don_gia_Ban="53200000" Don_gia_Nhap="18500000" So_luong_Ton="40" Doanh_thu="575000000000"  Trang_thai="Closed" >
 	<Nhom_Laptop Ten="Macbook" Ma_so="MACBOOK"/>
+	<MoTa CPU="CPU:	Intel Core i7 Kabylake, 2.80 GHz" RAM="RAM:	16 GB, DDR3 (on board), 2133 MHz" Screen="Màn hình:	15.4 inch, Retina (2880 x 1800)" Hard_disk="Ổ cứng:	SSD: 256 GB" Others="Card màn hình:	Card đồ họa rời, AMD Radeon Pro 555, 2 GB"></MoTa>
 </Laptop>

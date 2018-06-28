@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop HP 15 bs641TU" Ma_so="LAPTOP_10" Don_gia_Ban="12800000" Don_gia_Nhap="18500000" So_luong_Ton="20" Doanh_thu="78112000000"  Trang_thai="Open">
+<Laptop Ten="Laptop HP 15 bs641TU" Ma_so="LAPTOP_10" Don_gia_Ban="12800000" Don_gia_Nhap="18500000" So_luong_Ton="20" Doanh_thu="78112000000"  Trang_thai="Open" >
 	<Nhom_Laptop Ten="HP" Ma_so="HP"/>
+	<MoTa CPU="CPU: Intel Pentium, N3710, 1.60 GHz" RAM="RAM: 4 GB, DDR3L (1 khe RAM), 1600 MHz" Screen="Màn hình: 15.6 inch, HD (1366 x 768)" Hard_disk="Ổ cứng:	HDD 500 GB, Hỗ trợ khe cắm SSD M.2" Others="Dày 23.8 mm, 1.86 kg"></MoTa>
 </Laptop>

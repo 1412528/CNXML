@@ -45,6 +45,9 @@ function Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach) {
     var Th_Laptop = document.createElement("div")
     Th_Laptop.className = `product_item is_new`
     Th_Laptop.style.cssFloat = "left"
+    Th_Laptop.setAttribute("onclick",`Chi_tiet_SP('${Ma_so}')`);
+    // Th_Laptop.setAttribute("onclick",`alert("OK")`);
+
     Th_Laptop.appendChild(Th_border)
     Th_Laptop.appendChild(Th_Hinh_div)
     Th_Laptop.appendChild(Th_Thong_tin)
@@ -83,5 +86,4 @@ function Doc_Danh_sach_Mat_hang() {
   var Du_lieu = new DOMParser().parseFromString(Chuoi_XML, "text/xml").documentElement
   return Du_lieu
 }
-
 

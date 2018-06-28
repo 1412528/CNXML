@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop Apple Macbook Pro Touch MPXV2SA/A" Ma_so="LAPTOP_35" Don_gia_Ban="48900000" Don_gia_Nhap="18500000" So_luong_Ton="70" Doanh_thu="7520000000000"  Trang_thai="Open">
+<Laptop Ten="Laptop Apple Macbook Pro Touch MPXV2SA/A" Ma_so="LAPTOP_35" Don_gia_Ban="48900000" Don_gia_Nhap="18500000" So_luong_Ton="70" Doanh_thu="7520000000000"  Trang_thai="Open" >
 	<Nhom_Laptop Ten="Macbook" Ma_so="MACBOOK"/>
+	<MoTa CPU="CPU:	Intel Core i5 Kabylake, 2.30 GHz" RAM="RAM:	8 GB, DDR3 (on board), 2133 MHz" Screen="Màn hình:	13.3 inch, Retina (2560 x 1600)" Hard_disk="Ổ cứng:	SSD: 128 GB" Others="Card màn hình:	Card đồ họa tích hợp, Intel® Iris™ Plus Graphics 640"></MoTa>
 </Laptop>

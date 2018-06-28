@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop Lenovo IdeaPad 320 15IKBN" Ma_so="LAPTOP_18" Don_gia_Ban="13600000" Don_gia_Nhap="18500000" So_luong_Ton="70" Doanh_thu="745300000000"  Trang_thai="Open">
+<Laptop Ten="Laptop Lenovo IdeaPad 320 15IKBN" Ma_so="LAPTOP_18" Don_gia_Ban="13600000" Don_gia_Nhap="18500000" So_luong_Ton="70" Doanh_thu="745300000000"  Trang_thai="Open" >
 	<Nhom_Laptop Ten="Lenovo" Ma_so="LENOVO"/>
+	<MoTa CPU="CPU:	Intel Core i7 Kabylake Refresh, 8550U, 1.80 GHz" RAM="RAM:	4 GB, DDR4 (On board +1 khe), 2133 MHz" Screen="Màn hình:	15.6 inch, Full HD (1920 x 1080)" Hard_disk="Ổ cứng:	HDD: 1 TB" Others="Card màn hình:	Card đồ họa rời, NVIDIA Geforce MX150, 2GB"></MoTa>
 </Laptop>

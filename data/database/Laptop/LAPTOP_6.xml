@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop Apple Macbook Air MQD32SA/A" Ma_so="LAPTOP_6" Don_gia_Ban="13200000" Don_gia_Nhap="18500000" So_luong_Ton="60" Doanh_thu="241000000"  Trang_thai="Open">
+<Laptop Ten="Laptop Apple Macbook Air MQD32SA/A" Ma_so="LAPTOP_6" Don_gia_Ban="13200000" Don_gia_Nhap="18500000" So_luong_Ton="60" Doanh_thu="241000000"  Trang_thai="Open" >
 	<Nhom_Laptop Ten="Macbook" Ma_so="MACBOOK"/>
+	<MoTa CPU="CPU:	Intel Core i5 Broadwell, 1.80 GHz" RAM="RAM:	8 GB, DDR3L(On board), 1600 MHz" Screen="Màn hình:	13.3 inch, WXGA+(1440 x 900)" Hard_disk="Ổ cứng:	SSD: 128 GB" Others="Đặc biệt:	Có đèn bàn phím"></MoTa>
 </Laptop>

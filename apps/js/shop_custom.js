@@ -21,6 +21,12 @@ $(document).ready(function()
 {
 	"use strict";
 
+	$('.close_form_update, .cover').click(function (e) { 
+        e.preventDefault();
+        $('.update_product').removeClass('show_box');
+        $('.cover').removeClass('show_box');
+	});
+	
 	/* 
 
 	1. Vars and Inits

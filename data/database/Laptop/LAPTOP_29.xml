@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop Macbook Spin 3 SP314" Ma_so="LAPTOP_29" Don_gia_Ban="12500000" Don_gia_Nhap="18500000" So_luong_Ton="20" Doanh_thu="3652000000"  Trang_thai="Open">
+<Laptop Ten="Laptop Macbook Spin 3 SP314" Ma_so="LAPTOP_29" Don_gia_Ban="12500000" Don_gia_Nhap="18500000" So_luong_Ton="20" Doanh_thu="3652000000"  Trang_thai="Open" >
 	<Nhom_Laptop Ten="Macbook" Ma_so="MACBOOK"/>
+	<MoTa CPU="CPU:	Intel Core i3 Kabylake, 7130U, 2.70 GHz" RAM="RAM:	4 GB, DDR4 (On board), 2133 MHz" Screen="Màn hình:	14 inch, Full HD (1920 x 1080)" Hard_disk="Ổ cứng:	HDD: 500 GB, Hỗ trợ khe cắm SSD M.2" Others="Card màn hình:	Card đồ họa tích hợp, Intel® HD Graphics 620"></MoTa>
 </Laptop>

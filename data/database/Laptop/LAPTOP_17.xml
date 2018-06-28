@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop HP 15 bs571TU" Ma_so="LAPTOP_17" Don_gia_Ban="13900000" Don_gia_Nhap="18500000" So_luong_Ton="40" Doanh_thu="45680000000"  Trang_thai="Open">
+<Laptop Ten="Laptop HP 15 bs571TU" Ma_so="LAPTOP_17" Don_gia_Ban="13900000" Don_gia_Nhap="18500000" So_luong_Ton="40" Doanh_thu="45680000000"  Trang_thai="Open" >
 	<Nhom_Laptop Ten="HP" Ma_so="HP"/>
+	<MoTa CPU="CPU:	Intel Core i3 Skylake, 6006U, 2.00 GHz" RAM="RAM:	4 GB, DDR4 (1 khe), 2133 MHz" Screen="Màn hình:	15.6 inch, HD (1366 x 768)" Hard_disk="Ổ cứng:	HDD: 1 TB" Others="Card màn hình:	Card đồ họa tích hợp, Intel® HD Graphics 520"></MoTa>
 </Laptop>

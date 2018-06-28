@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop Asus TP410UA" Ma_so="LAPTOP_4" Don_gia_Ban="13200000" Don_gia_Nhap="18500000" So_luong_Ton="10" Doanh_thu="142000000"  Trang_thai="Open">
+<Laptop Ten="Laptop Asus TP410UA" Ma_so="LAPTOP_4" Don_gia_Ban="13200000" Don_gia_Nhap="18500000" So_luong_Ton="10" Doanh_thu="142000000"  Trang_thai="Open" >
 	<Nhom_Laptop Ten="Asus" Ma_so="ASUS"/>
+	<MoTa CPU="CPU:	Intel Core i3 Kabylake, 7100U, 2.40 GHz" RAM="RAM:	4 GB, DDR4 (2 khe), 2133 MHz" Screen="Màn hình:	14 inch, Full HD (1920 x 1080)" Hard_disk="Ổ cứng:	HDD: 1 TB" Others="Card màn hình:	Card đồ họa tích hợp, Intel® HD Graphics 620"></MoTa>
 </Laptop>

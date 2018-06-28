@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop Asus X541UA i3" Ma_so="LAPTOP_15" Don_gia_Ban="15500000" Don_gia_Nhap="18500000" So_luong_Ton="30" Doanh_thu="10140000000"  Trang_thai="Open">
+<Laptop Ten="Laptop Asus X541UA i3" Ma_so="LAPTOP_15" Don_gia_Ban="15500000" Don_gia_Nhap="18500000" So_luong_Ton="30" Doanh_thu="10140000000"  Trang_thai="Open" >
 	<Nhom_Laptop Ten="Asus" Ma_so="ASUS"/>
+	<MoTa CPU="CPU:	Intel Core i3 Skylake, 6100U, 2.30 GHz" RAM="RAM:	4 GB, DDR4 (1 khe), 2133 MHz" Screen="15.6 inch, HD (1366 x 768)" Hard_disk="HDD: 1 TB" Others=""></MoTa>
 </Laptop>

@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop Lenovo IdeaPad 120S" Ma_so="LAPTOP_5" Don_gia_Ban="13200000" Don_gia_Nhap="18500000" So_luong_Ton="20" Doanh_thu="5475000000"  Trang_thai="Closed">
+<Laptop Ten="Laptop Lenovo IdeaPad 120S" Ma_so="LAPTOP_5" Don_gia_Ban="13200000" Don_gia_Nhap="18500000" So_luong_Ton="20" Doanh_thu="5475000000"  Trang_thai="Closed" >
 	<Nhom_Laptop Ten="Lenovo" Ma_so="LENOVO"/>
+	<MoTa CPU="CPU:	Intel Celeron, N3350, 1.10 GHz" RAM="RAM:	2 GB, DDR4 (On board), 2400 MHz" Screen="Màn hình:	11.6 inch, HD (1366 x 768)" Hard_disk="Ổ cứng:	eMMC: 32 GB" Others="Card màn hình:	Card đồ họa tích hợp, Intel® HD Graphics"></MoTa>
 </Laptop>

@@ -329,6 +329,44 @@
             </div>
         </div>
     </div>
+    <!-- detail -->
+    <div class="update_product" style="width: 80%;left: 10%">
+        <div class="card">
+          <h5 class="card-header" id="NAME"></h5>
+          <div class="card-body">
+            <form>
+                <div class="row" style="text-align:left">
+                    <div class="col-md-4">
+                        <img src="" id="IMAGE" style="height:200px;object-fit:contain" >
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" >Price</label>
+                            <h5 class="col-sm-4 col-form-label" id="PRICE"></h5>
+                          
+                        </div>
+                         <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" >Status</label>
+                            <h5 class="col-sm-4 col-form-label" id="STATUS"></h5>
+                          
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" >Description</label>
+                            <p class="col-sm-9 col-form-label" id="DES" style="text-align:left"></p>
+                          
+                        </div>
+                    </div>
+                </div>
+                
+               
+            </form>
+            
+            <button type="button" class="btn close_form_update">Close</button>
+          </div>
+        </div>
+        
+    </div>
+    <div class="cover"></div>
 </body>
 </html>
 <script src="js/jquery-3.3.1.min.js"></script>
@@ -363,5 +401,47 @@ function Xu_ly_Tra_cuu(){
     var Chuoi_HTML_Danh_sach_Tivi = Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach_Tivi_Xem)
     
     CUA_SO_KET_QUA.innerHTML = Chuoi_HTML_Danh_sach_Tivi
+}
+// ************** Xử lý xem chi tiết *********** 
+function Chi_tiet_SP(id) {
+
+$('.update_product').addClass('show_box');
+$('.cover').addClass('show_box');
+
+var Danh_sach = Doc_Danh_sach_Mat_hang();
+var Dia_chi_Media = "../Media/"
+
+  for (var i = 0; i < Danh_sach.getElementsByTagName("Laptop").length; i++) {
+    var Laptop = Danh_sach.getElementsByTagName("Laptop")[i]
+    var Ten = Laptop.getAttribute("Ten")
+    var Ma_so = Laptop.getAttribute("Ma_so")
+    var Mo_ta = Laptop.getAttribute("Mo_Ta")
+    var Don_gia_Ban = parseInt(Laptop.getAttribute("Don_gia_Ban"))
+    var Trang_thai = Laptop.getAttribute("Trang_thai")
+    var Th_Trang_thai
+    var x = Danh_sach.getElementsByTagName("Nhom_Laptop")[i]
+    var y = x.getAttribute("Ten")
+
+
+    if(Trang_thai === "Closed")
+      Th_Trang_thai = "Hết hàng"
+    else if(Trang_thai == null || Trang_thai == "Open"){
+      Th_Trang_thai = "Còn hàng"
+    }
+    if(id==Ma_so)
+    {
+        var z = Danh_sach.getElementsByTagName("MoTa")[i]
+        var q =''
+      
+        q += z.getAttribute("CPU") + '</br>' + z.getAttribute("RAM") + '</br>' + z.getAttribute("Screen") + '</br>' + z.getAttribute("Hard_disk") + '</br>' + z.getAttribute("Others")
+        
+    
+         NAME.innerHTML = Ten
+         IMAGE.src='/Media/'+Ma_so+ '.jpg'
+         PRICE.innerHTML = Don_gia_Ban
+         STATUS.innerHTML = Th_Trang_thai
+         DES.innerHTML = q
+    }
+  }
 }
 </script>      

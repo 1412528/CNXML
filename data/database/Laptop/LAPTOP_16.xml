@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop Acer Aspire A315" Ma_so="LAPTOP_16" Don_gia_Ban="14600000" Don_gia_Nhap="18500000" So_luong_Ton="90" Doanh_thu="7850000000"  Trang_thai="Open">
+<Laptop Ten="Laptop Acer Aspire A315" Ma_so="LAPTOP_16" Don_gia_Ban="14600000" Don_gia_Nhap="18500000" So_luong_Ton="90" Doanh_thu="7850000000"  Trang_thai="Open" >
 	<Nhom_Laptop Ten="Acer" Ma_so="ACER"/>
+	<MoTa CPU="CPU:	Intel Pentium, N4200, 1.10 GHz" RAM="RAM:	4 GB, DDR3L(On board+1Khe), 1600 MHz" Screen="15.6 inch, HD (1366 x 768)" Hard_disk="	HDD: 500 GB" Others="Kích thước:	Dày 24.6 mm, 2.4 kg"></MoTa>
 </Laptop>

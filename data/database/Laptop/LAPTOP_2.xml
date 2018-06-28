@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Laptop Ten="Laptop HP Pavilion x360 ba063TU" Ma_so="LAPTOP_2" Don_gia_Ban="13200000" Don_gia_Nhap="18500000" So_luong_Ton="36" Doanh_thu="15712000000" Trang_thai="Open">
+<Laptop Ten="Laptop HP Pavilion x360 ba063TU" Ma_so="LAPTOP_2" Don_gia_Ban="13200000" Don_gia_Nhap="18500000" So_luong_Ton="33" Doanh_thu="15751600000" Trang_thai="Open">
   <Nhom_Laptop Ten="HP" Ma_so="HP"/>
+  <MoTa CPU="CPU:&#x9;Intel Core i3 Kabylake, 7100U, 2.40 GHz" RAM="RAM:&#x9;4 GB, DDR4 (2 khe), 2133 MHz" Screen="Màn hình:&#x9;14 inch, HD (1366 x 768)" Hard_disk="Ổ cứng:&#x9;HDD: 500 GB" Others="Đặc biệt:&#x9;Có màn hình cảm ứng"/>
 </Laptop>

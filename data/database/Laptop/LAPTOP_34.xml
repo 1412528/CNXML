@@ -1,3 +1,4 @@
-<Laptop Ten="Laptop Apple Macbook MNYK2SA/A Core M" Ma_so="LAPTOP_34" Don_gia_Ban="46800000" Don_gia_Nhap="18500000" So_luong_Ton="30" Doanh_thu="75720000000000"  Trang_thai="Open">
+<Laptop Ten="Laptop Apple Macbook MNYK2SA/A Core M" Ma_so="LAPTOP_34" Don_gia_Ban="46800000" Don_gia_Nhap="18500000" So_luong_Ton="30" Doanh_thu="75720000000000"  Trang_thai="Open" >
 	<Nhom_Laptop Ten="Macbook" Ma_so="MACBOOK"/>
+	<MoTa CPU="CPU:	Intel Core M, M3, 1.20 GHz" RAM="RAM:	8 GB, DDR3 (on board), 1866 MHz" Screen="Màn hình:	12 inch, Retina (2304 x 1440)" Hard_disk="Ổ cứng:	SSD: 256 GB" Others="Đặc biệt:	Có đèn bàn phím"></MoTa>
 </Laptop>
