@@ -1,44 +1,30 @@
 {
   "Ten": "Nhà hàng PET",
   "Ma_so": "PET",
-  "Danh_sach_Nhan_vien": {
-    "Nhan_vien_Ban_hang": [
+  "Danh_sach_Nhan_vien": [
       {
         "Ho_Ten": "Nguyễn thị Ăn",
-        "Ma_so": "NV_1",
+        "Permission": "1",
         "Ten_Dang_nhap": "NV_1",
-        "Mat_khau": "NV_1",
-        "Doanh_thu": 0
+        "Mat_khau": "NV_1"
       },
       {
         "Ho_Ten": "Nguyễn văn A",
-        "Ma_so": "NV_2",
+        "Permission": "1",
         "Ten_Dang_nhap": "NV_2",
-        "Mat_khau": "NV_2",
-        "Doanh_thu": 109250000
-      }
-    ],
-    "Nhan_vien_Nhap_hang": [
+        "Mat_khau": "NV_2"
+      },
       {
-        "Ho_Ten": "Nguyễn thị Ăn",
-        "Ma_so": "NV_3",
-        "Ten_Dang_nhap": "NV_3",
-        "Mat_khau": "NV_3"
+        "Ho_Ten": "Nguyễn thị Uống",
+        "Permission": "2",
+        "Ten_Dang_nhap": "QL_1",
+        "Mat_khau": "QL_1"
+      },
+      {
+        "Ho_Ten": "Nguyễn thị Uống",
+        "Permission": "2",
+        "Ten_Dang_nhap": "QL_2",
+        "Mat_khau": "QL_2"
       }
-    ]
-  },
-  "Danh_sach_Quan_ly": [
-    {
-      "Ho_Ten": "Nguyễn thị Uống",
-      "Ma_so": "NV_4",
-      "Ten_Dang_nhap": "QL_1",
-      "Mat_khau": "QL_1"
-    },
-    {
-      "Ho_Ten": "Nguyễn thị Uống",
-      "Ma_so": "NV_5",
-      "Ten_Dang_nhap": "QL_2",
-      "Mat_khau": "QL_2"
-    }
   ]
 }

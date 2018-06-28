@@ -7,8 +7,7 @@ var getMethod = require("./services/getMethod.js");
 var postMethod = require("./services/postMethod.js");
 
 var Danh_Sach_Laptop;
-// var Danh_Sach_Phieu_ban = 
-// var Nha_hang = getMethod.Doc_Thong_tin_Nha_hang();
+var Nha_hang = getMethod.Doc_Thong_tin_Nha_hang();
 
 app.createServer((req, res) => {
     console.log(`${req.method} ${req.url}`);
@@ -21,6 +20,10 @@ app.createServer((req, res) => {
                     Danh_Sach_Laptop = getMethod.Doc_Danh_Sach_Laptop();
                     res.end(Danh_Sach_Laptop);
                     break;
+                case '/Danh_sach_Nhan_vien':
+                    res.writeHeader(200, {'Content-Type': 'application/json'})
+                    res.end(JSON.stringify(Nha_hang));
+                    break
 
                 default:
                     res.writeHeader(404, {'Content-Type': 'text/plain'});
@@ -63,36 +66,18 @@ app.createServer((req, res) => {
                     });
                     setTimeout(() => {
                         Danh_Sach_Laptop = getMethod.Doc_Danh_Sach_Laptop();
-                        // console.log(Danh_Sach_Laptop);
                         res.writeHeader(200, {'Content-Type': 'text/xml', 'Access-Control-Allow-Origin' : '*'});
                         res.end(Danh_Sach_Laptop);
                     }, 3000);
                     
                     break;
-                case '/login':
-                    // console.log(req.headers)
-                    // console.log(req.body)
-
-                    var body = [];
-                    req.on('data', (chunk) => {
-                        body.push(chunk)
-                    }).on('end', () => {
-                        body = Buffer.concat(body).toString()
-                        
-                    })
-
-                    session.push(101)
-                    console.log(session)
-                    res.writeHeader(200, {'Content-Type': 'text/plain'})
-                    res.end('101')
-                    break
 
                 default:
                     res.writeHeader(404, {'Content-Type': 'text/plain'});
                     res.end("Request was not support!!!");
                     break;
             }
-            break
+            break;
         case 'PUT':
             break
         case 'DELETE':

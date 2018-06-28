@@ -22,11 +22,11 @@ class GET_METHOD {
     console.log("--> DONE XML <--");
     return Du_lieu;
   }
-  // Doc_Thong_tin_Nha_hang(){
-  //   var ChuoiJSON = File.readFileSync(Duong_dan_Thu_muc_Du_lieu + "/Cua_hang/Nha_hang.json", "UTF-8");
-  //   var Nha_hang = JSON.parse(ChuoiJSON);
-  //   return Nha_hang;
-  // }
+  Doc_Thong_tin_Nha_hang(){
+    var ChuoiJSON = File.readFileSync(Duong_dan_Thu_muc_Du_lieu + "/Cua_hang/Nha_hang.json", "UTF-8");
+    var Nha_hang = JSON.parse(ChuoiJSON);
+    return Nha_hang;
+  }
   // Ghi_Du_lieu(Du_lieu){
   //   var Chuoi_XML = new XMLSerializer().serializeToString(Du_lieu)
   //   File.writeFile(Duong_dan, Chuoi_XML, err => {

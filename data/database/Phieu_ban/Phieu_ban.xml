@@ -13,4 +13,7 @@
 	<Phieu_ban Ma_so="" Ngay="" Ho_ten="" Dia_chi="" Tong_Doanh_thu="16200000">
 		<Laptop Ma_so="LAPTOP_1" Don_gia_Ban="16200000" So_luong="1" Doanh_thu="16200000">
 	</Phieu_ban>
+	<Phieu_ban Ma_so="" Ngay="" Ho_ten="" Dia_chi="" Tong_Doanh_thu="32800000">
+		<Laptop Ma_so="LAPTOP_1" Don_gia_Ban="16400000" So_luong="2" Doanh_thu="32800000">
+	</Phieu_ban>
 </Danh_sach_Phieu_ban>
